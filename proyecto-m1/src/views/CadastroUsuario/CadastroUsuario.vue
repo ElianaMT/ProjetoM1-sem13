@@ -1,0 +1,3 @@
+<template>
+   Cadastro Usuario
+</template>

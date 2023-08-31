@@ -1,0 +1,3 @@
+<template>
+  Visualizacao Treinos
+</template>

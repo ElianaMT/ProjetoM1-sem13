@@ -1,22 +1,60 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+import Login from "../views/Login/Login.vue"
+import CadastroUsuario from "../views/CadastroUsuario/CadastroUsuario.vue"
+import Dashboard from "../views/Dashboard/dashboard.vue"
+import GerenciamentoExercicios from "../views/GerenciamentoExercicios/GerenciamentoExercicios.vue"
+import GerenciamentoAlunos from "../views/GerenciamentoAlunos/GerenciamentoAlunos.vue"
+import CadastroNovoAluno from "../views/CadastroNovoAluno/CadastroNovoAluno.vue"
+import CadastroTreino from "../views/CadastroTreino/CadastroTreino.vue"
+import VisualizacaoTreinos from "../views/VisualizacaoTreinos/VisualizacaoTreinos.vue"
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'Login',
+      component: Login
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/cadastro-usuario',
+      name: 'CadastroUsuario',
+      component: CadastroUsuario
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/gerenciamento-exercicios',
+      name: 'GerenciamentoExercicios',
+      component: GerenciamentoExercicios
+    },
+    {
+      path: '/gerenciamento-alunos',
+      name: 'GerenciamentoAlunos',
+      component: GerenciamentoAlunos
+    },
+    {
+      path: '/cadastro-novo-aluno',
+      name: 'CadastroNovoAluno',
+      component: CadastroNovoAluno
+    },
+    {
+      path: '/cadastro-treino',
+      name: 'CadastroTreino',
+      component: CadastroTreino
+    },
+    {
+      path: '/visualizacao-treinos ',
+      name: 'VisualizacaoTreinos ',
+      component: VisualizacaoTreinos 
     }
+  
+  
   ]
 })
 
