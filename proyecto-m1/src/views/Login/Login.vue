@@ -85,6 +85,7 @@
  
  <script>
  import axios from "axios"
+ import {redirect} from "vue-router"
 
   export default { 
    data() { 
@@ -110,19 +111,20 @@ try {
    const result = await axios.post("http://localhost:3000/sessions", this.usuario)
    if(result.status === 200){
       localStorage.setItem("user.info", JSON.stringify(result.data))
+
+      this.$router.push("/dashboard")
    }
 
 } catch (error) {
-   alert("Usuario não cadastrado")
-   
+   alert("Usuario não cadastrado!")
+   this.$router.push("/cadastro-usuario")
 }
-
 
 const result = confirm("Usuario logado com sucesso! ")
    this.$refs.form.reset()
 
       }
-   },
+   }
   }
 
  </script>
