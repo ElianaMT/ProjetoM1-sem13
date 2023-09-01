@@ -1,4 +1,5 @@
 <template>
+    {{usuario }}
            <v-card
        class="mx-auto pa-12 pb-8"
        elevation="8"
@@ -14,6 +15,9 @@
             <v-text-field
             type="text"
             label="Nome Completo"
+            v-model="usuario.nome"
+           :rules="[value => !!value || 'O nome é obrigatorio']"
+
             ></v-text-field>
 
             <v-text-field
@@ -62,7 +66,25 @@
 </template>
 
 <script>
-</script>
+export default { 
+   data() { 
+      return{ 
+         usuario:{ 
+            nome:"",
+            email:"",
+            senha:"",
+            confirmacaoSenha:"",
+            plano:""
+         },
+         
+      }
+   },
+  
+ }
+  
+ </script>
+
+
 
 <style>
 .title{ 
