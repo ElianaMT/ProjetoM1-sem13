@@ -1,6 +1,6 @@
 <template>
         
-   <v-form  @submit.prevent="handleSubmit">
+   <v-form ref="form"  @submit.prevent="handleSubmit">
 
      <v-card
        class="mx-auto pa-12 pb-8"
@@ -97,7 +97,16 @@
    },
    methods: {
       async handleSubmit(){
-         alert("Logando...")
+
+         const { valid } = await this.$refs.form.validate()
+
+         if (!valid) {
+        alert('Preencha todos os dados!')
+      return
+   }
+const result = confirm("Usuario logado com sucesso! ")
+   this.$refs.form.reset()
+
       }
    },
   }
