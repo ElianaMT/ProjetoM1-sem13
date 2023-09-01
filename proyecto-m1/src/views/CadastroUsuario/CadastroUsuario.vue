@@ -53,7 +53,7 @@
 
             <v-select
             label="Tipo de plano"
-            v-model="usuario.plano"
+            v-model="model"
            :items="items"
            :rules="[value => !!value || 'Selecione um item ']"
             ></v-select>
@@ -95,7 +95,8 @@ export default {
             confirmacaoSenha:"",
             plano:""
          },
-         items:["Bronze", "Prata", "Ouro"]
+         items:["Bronze", "Prata", "Ouro"],
+         model: "Bronze"
       }
    },
   
