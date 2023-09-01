@@ -29,6 +29,16 @@
             <v-text-field
             type="password"
             label="Senha"
+            v-model="usuario.senha"
+            :rules="[value => !!value || 'A senha é obrigatoria',
+            value => {
+            if (value?.length >= 8 && value?.length <= 20) return true
+
+            return 'A senha deve ter: mínimo 8 e máximo 20 caracteres'
+            },
+            ]"
+
+            
             ></v-text-field>
 
             <v-text-field
