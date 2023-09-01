@@ -11,7 +11,7 @@
    </div>
      
 
-         <form @submit.prevent="handleSubmit" >
+         <v-form ref="form" @submit.prevent="handleSubmit" >
             <v-text-field
             type="text"
             label="Nome Completo"
@@ -79,7 +79,7 @@
     </div>
 
 
-         </form>     
+         </v-form>     
            </v-card>
 
 </template>
@@ -100,12 +100,18 @@ export default {
       }
    },
    methods: {
-       handleSubmit () {
-         alert("Usuario cadastrado com sucesso")
+       async handleSubmit () {
+         const {valid } = await this.$refs.form.validate()
 
+         if(!valid){
+            alert("Preencha todos os dados")
+            return
+         }
+         const result = confirm ("Usuario cadastrado com sucesso")
+         this.$refs.form.reset()
+         
       }
    }
-
   
  }
   
