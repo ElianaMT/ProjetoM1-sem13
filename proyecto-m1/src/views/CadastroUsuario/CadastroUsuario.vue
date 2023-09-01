@@ -53,6 +53,9 @@
 
             <v-select
             label="Tipo de plano"
+            v-model="usuario.plano"
+           :items="items"
+           :rules="[value => !!value || 'Selecione um item ']"
             ></v-select>
 
       <div class="d-flex flex-column">
@@ -92,7 +95,7 @@ export default {
             confirmacaoSenha:"",
             plano:""
          },
-         
+         items:["Bronze", "Prata", "Ouro"]
       }
    },
   
