@@ -22,6 +22,11 @@
          placeholder="Email"
          prepend-inner-icon="mdi-email-outline"
          variant="outlined"
+         v-model="sessions.email"
+         :rules="[value => !!value || 'O email é obrigatorio']"
+         type="email"
+
+
        ></v-text-field>
  
        <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
@@ -37,6 +42,10 @@
          prepend-inner-icon="mdi-lock-outline"
          variant="outlined"
          @click:append-inner="visible = !visible"
+         v-model="sessions.password"
+       :rules="[ value => !!value || 'A senha é obrigatoria' ]"   
+      
+
        ></v-text-field>
  
        <v-card
@@ -72,9 +81,17 @@
  </template>
  
  <script>
-   export default {
-    data: () => ({
-      visible: false,
-    }),
+
+  export default { 
+   data() { 
+      return{ 
+         visible: false,
+         sessions:{ 
+            email:"",
+            password:"",
+                     },
+               }
+   },
   }
+
  </script>
