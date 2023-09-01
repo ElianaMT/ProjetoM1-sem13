@@ -85,7 +85,7 @@
  
  <script>
  import axios from "axios"
- import {redirect} from "vue-router"
+ 
 
   export default { 
    data() { 
