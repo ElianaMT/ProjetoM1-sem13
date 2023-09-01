@@ -36,14 +36,19 @@
 
             return 'A senha deve ter: mínimo 8 e máximo 20 caracteres'
             },
-            ]"
-
-            
+            ]"            
             ></v-text-field>
 
             <v-text-field
             type="password"
             label=" Confirme a Senha"
+            v-model="usuario.confirmacaoSenha"
+            :rules="[value => !!value || 'A confirmacao da senha é obrigatoria',
+            value => {
+            if (usuario.senha != value) return 'A confirmação da senha não é válida'
+            },
+            ]"
+
             ></v-text-field>
 
             <v-select
