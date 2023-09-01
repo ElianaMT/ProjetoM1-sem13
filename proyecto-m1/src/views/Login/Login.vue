@@ -1,6 +1,7 @@
 <template>
-   <div>
-     
+        
+   <v-form  @submit.prevent="handleSubmit">
+
      <v-card
        class="mx-auto pa-12 pb-8"
        elevation="8"
@@ -62,6 +63,7 @@
          color="blue"
          size="large"
          variant="tonal"
+         type="submit"
        >
          Entrar
        </v-btn>
@@ -77,7 +79,8 @@
          </a>
        </v-card-text>
      </v-card>
-   </div>
+   </v-form>
+  
  </template>
  
  <script>
@@ -91,6 +94,11 @@
             password:"",
                      },
                }
+   },
+   methods: {
+      async handleSubmit(){
+         alert("Logando...")
+      }
    },
   }
 
