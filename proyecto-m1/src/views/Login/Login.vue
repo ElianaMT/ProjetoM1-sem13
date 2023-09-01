@@ -23,7 +23,7 @@
          placeholder="Email"
          prepend-inner-icon="mdi-email-outline"
          variant="outlined"
-         v-model="sessions.email"
+         v-model="usuario.email"
          :rules="[value => !!value || 'O email é obrigatorio']"
          type="email"
 
@@ -43,7 +43,7 @@
          prepend-inner-icon="mdi-lock-outline"
          variant="outlined"
          @click:append-inner="visible = !visible"
-         v-model="sessions.password"
+         v-model="usuario.password"
        :rules="[ value => !!value || 'A senha é obrigatoria' ]"   
       
 
@@ -84,12 +84,13 @@
  </template>
  
  <script>
+ import axios from "axios"
 
   export default { 
    data() { 
       return{ 
          visible: false,
-         sessions:{ 
+         usuario:{ 
             email:"",
             password:"",
                      },
@@ -104,6 +105,19 @@
         alert('Preencha todos os dados!')
       return
    }
+
+try {
+   const result = await axios.post("http://localhost:3000/sessions", this.usuario)
+   if(result.status === 200){
+      localStorage.setItem("user.info", JSON.stringify(result.data))
+   }
+
+} catch (error) {
+   alert("Usuario não cadastrado")
+   
+}
+
+
 const result = confirm("Usuario logado com sucesso! ")
    this.$refs.form.reset()
 
