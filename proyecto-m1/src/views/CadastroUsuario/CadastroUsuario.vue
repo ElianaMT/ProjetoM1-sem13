@@ -11,7 +11,7 @@
    </div>
      
 
-         <form>
+         <form @submit.prevent="handleSubmit" >
             <v-text-field
             type="text"
             label="Nome Completo"
@@ -99,6 +99,13 @@ export default {
          model: "Bronze"
       }
    },
+   methods: {
+       handleSubmit () {
+         alert("Usuario cadastrado com sucesso")
+
+      }
+   }
+
   
  }
   
