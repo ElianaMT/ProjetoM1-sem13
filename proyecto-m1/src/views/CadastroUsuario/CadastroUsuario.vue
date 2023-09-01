@@ -17,12 +17,13 @@
             label="Nome Completo"
             v-model="usuario.nome"
            :rules="[value => !!value || 'O nome é obrigatorio']"
-
             ></v-text-field>
 
             <v-text-field
-            type="text"
+            type="email"
             label="E-mail"
+            v-model="usuario.email"
+            :rules="[value => !!value || 'O email é obrigatorio']"
             ></v-text-field>
 
             <v-text-field
