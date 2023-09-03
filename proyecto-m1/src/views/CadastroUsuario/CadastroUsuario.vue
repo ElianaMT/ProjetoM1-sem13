@@ -15,7 +15,7 @@
             <v-text-field
             type="text"
             label="Nome Completo"
-            v-model="usuario.nome"
+            v-model="usuario.name"
            :rules="[value => !!value || 'O nome é obrigatorio']"
             ></v-text-field>
 
@@ -29,7 +29,7 @@
             <v-text-field
             type="password"
             label="Senha"
-            v-model="usuario.senha"
+            v-model="usuario.password"
             :rules="[value => !!value || 'A senha é obrigatoria',
             value => {
             if (value?.length >= 8 && value?.length <= 20) return true
@@ -85,15 +85,17 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default { 
    data() { 
       return{ 
          usuario:{ 
-            nome:"",
+            name:"",
             email:"",
-            senha:"",
+            password:"",
             confirmacaoSenha:"",
-            plano:""
+            type_plan:""
          },
          items:["Bronze", "Prata", "Ouro"],
          model: "Bronze"
@@ -106,6 +108,17 @@ export default {
          if(!valid){
             alert("Preencha todos os dados")
             return
+         }
+
+         try {
+            const result= await axios.post("http://localhost:3000/users", this.usuario)
+            if(result.status === 201){
+               localStorage.setItem("user-info", JSON.stringify(result.data))
+               this.$router.push("/login")
+            }
+         } catch (error) {
+            alert(error.message)
+            
          }
          const result = confirm ("Usuario cadastrado com sucesso")
          this.$refs.form.reset()
