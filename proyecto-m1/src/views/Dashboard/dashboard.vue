@@ -1,7 +1,7 @@
 <template>
     <div class="title">
         <h1>Bem-vindo, nome aluno</h1>
-        {{dashboardInfo }}
+       
         {{ userInfo}}
       
         
@@ -11,7 +11,7 @@
 
         <v-card class="mx-auto" width="500" prepend-icon="mdi-home">
             <template v-slot:title>
-                10 Alunos
+                {{dashboardInfo }} Alunos
             </template>
 
 
@@ -26,7 +26,7 @@
 
         <v-card class="mx-auto" width="500" prepend-icon="mdi-home">
             <template v-slot:title>
-                10 Alunos
+                {{dashboardInfo }} Exercicios
             </template>
 
             <v-card-actions>
