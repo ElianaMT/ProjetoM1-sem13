@@ -2,6 +2,7 @@
     <div class="title">
         <h1>Bem-vindo, nome aluno</h1>
         {{dashboardInfo }}
+        {{ userInfo}}
       
         
     </div>
@@ -43,8 +44,8 @@ import axios from "axios"
 export default{ 
     data() {
         return {
-            dashboardInfo:{ }
-            
+            dashboardInfo:{},
+            userInfo:{}            
         }
     },
 
@@ -53,7 +54,7 @@ export default{
         .then(res => this.dashboardInfo= res.data)
         .catch(error => console.log(error))
 
-       
+        this.userInfo = JSON.parse( localStorage.getItem("user-info")) || null
     }
 }
 </script>
