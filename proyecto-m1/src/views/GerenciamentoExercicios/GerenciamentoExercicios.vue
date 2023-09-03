@@ -1,10 +1,12 @@
 <template>
     
+    
     <v-form >
     <v-container>
         
       <div class="title">
-      <h1>Exercicios</h1>
+        <v-icon color="orange">mdi-cart</v-icon>        
+      <h1 > Exercicios</h1>
       </div>
 
       <v-row>
