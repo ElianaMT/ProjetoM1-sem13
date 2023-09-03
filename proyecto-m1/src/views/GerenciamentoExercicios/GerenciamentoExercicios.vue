@@ -1,10 +1,11 @@
 <template>
-
-     <v-form v-model="valid">
+    
+    <v-form >
     <v-container>
-    <div class="title">
+        
+      <div class="title">
       <h1>Exercicios</h1>
-    </div>
+      </div>
 
       <v-row>
         <v-col
@@ -12,10 +13,11 @@
           md="10"
         >
           <v-text-field
-            
+            type="text"
             label="Digite o nome do exercício"
-            required
-            hide-details
+            v-model="cadastroExercicio.exercises"
+           :rules="[value => !!value || 'O cadastro do exercício é obrigatorio']"
+
           ></v-text-field>
         </v-col>
 
@@ -37,16 +39,27 @@
        </v-row>
      </v-container>
     </v-form>   
-
-   
- 
+  
 
   </template>
 
-
  
   <script>
-</script>
+export default { 
+   data() { 
+      return{ 
+        cadastroExercicio:{ 
+            exercises:"",
+            
+         },
+         
+      }
+   },
+  
+ }
+
+
+  </script>
 
 <style>
 .title{ 
