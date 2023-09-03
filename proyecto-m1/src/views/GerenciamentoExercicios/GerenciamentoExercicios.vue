@@ -1,71 +1,60 @@
 <template>
-    
-    
-    <v-form >
-    <v-container>
-        
-      <div class="title">
-        <v-icon color="orange">mdi-cart</v-icon>        
-      <h1 > Exercicios</h1>
-      </div>
+    <v-form>
+        <v-container>
 
-      <v-row>
-        <v-col
-          cols="12"
-          md="10"
-        >
-          <v-text-field
-            type="text"
-            label="Digite o nome do exercício"
-            v-model="cadastroExercicio.exercises"
-           :rules="[value => !!value || 'O cadastro do exercício é obrigatorio']"
+            <v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
+                <v-col cols="1" class="flex-grow-0 flex-shrink-0">
+                    <v-sheet class="ma-2 pa-4">
+                        <v-icon color="orange">mdi-cart</v-icon>
+                    </v-sheet>
+                </v-col>
 
-          ></v-text-field>
-        </v-col>
+                <v-col cols="11" class="flex-grow-0 flex-shrink-0">
+                    <v-sheet class="ma-2 pa-4">
+                        Exercícios
+                    </v-sheet>
+                </v-col>
+            </v-row>
 
-        <v-col
-          cols="12"
-          md="2"
-        >
-        <v-btn
-           color="orange"
-           class="mt-2"
-           block
-           type="submit"
-           
-         >
-           Cadastrar
-         </v-btn>
 
-        </v-col>
-       </v-row>
-     </v-container>
-    </v-form>   
-  
+            <v-row>
+                <v-col cols="12" md="10">
+                    <v-text-field type="text" label="Digite o nome do exercício" v-model="cadastroExercicio.exercises"
+                        :rules="[value => !!value || 'O cadastro do exercício é obrigatorio']"></v-text-field>
+                </v-col>
 
-  </template>
+                <v-col cols="12" md="2">
+                    <v-btn color="orange" class="mt-2" block type="submit">
+                        Cadastrar
+                    </v-btn>
+
+                </v-col>
+            </v-row>
+        </v-container>
+    </v-form>
+</template>
 
  
-  <script>
-export default { 
-   data() { 
-      return{ 
-        cadastroExercicio:{ 
-            exercises:"",
-            
-         },
-         
-      }
-   },
-  
- }
+<script>
+export default {
+    data() {
+        return {
+            cadastroExercicio: {
+                exercises: "",
+
+            },
+
+        }
+    },
+
+}
 
 
-  </script>
+</script>
 
 <style>
-.title{ 
-   padding-bottom: 25px;
-   color:orange;  
+.encabezado {
+    border-bottom: solid;
+    border-color: orange;
 }
 </style>
