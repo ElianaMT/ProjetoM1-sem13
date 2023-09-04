@@ -53,17 +53,34 @@
 
  
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
             cadastroExercicio: {
-                exercises: "",
-
+                exercises: [ ],
             },
-
         }
     },
-
+    mounted() {
+        this.loadExercises()
+    },
+    methods: {
+        loadExercises(){
+            axios({
+                url:"http://localhost:3000/exercises",
+                method: "GET"
+            })
+            .then((response)=>{
+                this.exercises = response.data
+                
+            }) 
+            .catch(()=>{
+                alert ("Nao foi possivel cargar el listagem do exercícios")
+            })  
+        }
+    },
 }
 
 
