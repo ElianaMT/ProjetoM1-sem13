@@ -45,7 +45,7 @@
             v-model="usuario.confirmacaoSenha"
             :rules="[value => !!value || 'A confirmacao da senha é obrigatoria',
             value => {
-            if (usuario.senha != value) return 'A confirmação da senha não é válida'
+            if (usuario.password != value) return 'A confirmação da senha não é válida'
             },
             ]"
 
