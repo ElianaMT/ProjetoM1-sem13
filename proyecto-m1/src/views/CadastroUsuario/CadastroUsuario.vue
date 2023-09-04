@@ -117,7 +117,7 @@ export default {
                this.$router.push("/")
             }
          } catch (error) {
-            alert(error.message)
+            alert("Nao foi possível criar a conta nesse momento")
             
          }
          const result = confirm ("Usuario cadastrado com sucesso")
