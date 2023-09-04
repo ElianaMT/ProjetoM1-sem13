@@ -31,7 +31,24 @@
                 </v-col>
             </v-row>
         </v-container>
+
+        
     </v-form>
+
+    <v-table>
+    <thead>
+      <tr>
+        <th>Nome</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>exercicio</td>      
+      </tr>
+      
+    </tbody>
+  </v-table>
+
 </template>
 
  
