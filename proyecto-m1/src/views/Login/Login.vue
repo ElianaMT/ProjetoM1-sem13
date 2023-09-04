@@ -120,7 +120,7 @@ try {
    this.$router.push("/cadastro-usuario")
 }
 
-const result = confirm("Usuario logado com sucesso! ")
+const result = confirm("Cadastrarse ")
    this.$refs.form.reset()
 
       }
