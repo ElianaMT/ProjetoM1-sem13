@@ -114,7 +114,7 @@ export default {
             const result= await axios.post("http://localhost:3000/users", this.usuario)
             if(result.status === 201){
                localStorage.setItem("user-info", JSON.stringify(result.data))
-               this.$router.push("/login")
+               this.$router.push("/")
             }
          } catch (error) {
             alert(error.message)
