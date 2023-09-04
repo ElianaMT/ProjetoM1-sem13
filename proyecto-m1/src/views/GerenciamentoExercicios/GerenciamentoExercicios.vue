@@ -35,15 +35,15 @@
         
     </v-form>
 
-    <v-table>
+    <v-table >
     <thead>
       <tr>
         <th>Nome</th>        
       </tr>
     </thead>
     <tbody>
-      <tr>
-      <td>exercicio</td>      
+      <tr v-for="exercise in exercises" :key="exercise.id">
+      <td>{{product.nome }}</td>      
       </tr>
       
     </tbody>
