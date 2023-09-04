@@ -1,5 +1,5 @@
 <template>
-    <v-form>
+    <v-form ref="form"  @submit.prevent="handleSubmit" >
         <v-container>
 
             <v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
@@ -43,7 +43,7 @@
     </thead>
     <tbody>
       <tr v-for="exercise in exercises" :key="exercise.id">
-      <td>{{product.nome }}</td>      
+      <td>{{product }}</td>      
       </tr>
       
     </tbody>
@@ -59,28 +59,33 @@ export default {
     data() {
         return {
             cadastroExercicio: {
-                exercises: [ ],
-            },
+                exercises: ""
+            }
         }
-    },
-    mounted() {
-        this.loadExercises()
     },
     methods: {
-        loadExercises(){
-            axios({
-                url:"http://localhost:3000/exercises",
-                method: "GET"
-            })
-            .then((response)=>{
-                this.exercises = response.data
-                
-            }) 
-            .catch(()=>{
-                alert ("Nao foi possivel cargar el listagem do exercícios")
-            })  
-        }
+        async handleSubmit(){}
+        const {valid } = await this.$refs.form.validate()
+
+         if(!valid){
+            alert("Preencha todos os dados")
+            return
+         }
+         try {
+            const result= await axios.post("http://localhost:3000/users", this.cadastroExercicio)
+            if(result.status === 201){
+               localStorage.setItem("exercicio-info", JSON.stringify(result.data))
+               this.$router.push("/")
+            }
+         } catch (error) {
+            alert(error.message)
+            
+         }
+         const result = confirm ("Exercicio cadastrado com sucesso")
+         this.$refs.form.reset()       
+
     },
+   
 }
 
 
