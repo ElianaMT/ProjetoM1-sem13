@@ -70,6 +70,7 @@
          </v-btn>
 
          <v-btn
+           to="/"
            color="orange"
            class="mt-4"
            block
@@ -97,7 +98,15 @@ export default {
             confirmacaoSenha:"",
             type_plan:""
          },
-         items:["Bronze", "Prata", "Ouro"],
+         items:[{ title:"Bronze", 
+         value:"bronze"},
+         { title:"Prata", 
+         value:"silver"},
+         { title:"Ouro", 
+         value:"gold"},
+        
+      ],
+
          model: "Bronze"
       }
    },
