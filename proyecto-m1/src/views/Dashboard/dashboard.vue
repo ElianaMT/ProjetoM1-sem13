@@ -11,7 +11,7 @@
 
         <v-card class="mx-auto" width="500" prepend-icon="mdi-home">
             <template v-slot:title>
-                {{dashboardInfo }} Alunos
+                {{dashboardInfo.amount_students }} Alunos
             </template>
 
 
@@ -26,7 +26,7 @@
 
         <v-card class="mx-auto" width="500" prepend-icon="mdi-home">
             <template v-slot:title>
-                {{dashboardInfo }} Exercicios
+                {{dashboardInfo.amount_exercises}} Exercicios
             </template>
 
             <v-card-actions>
@@ -54,7 +54,7 @@ export default{
         .then(res => this.dashboardInfo= res.data)
         .catch(error => console.log(error))
 
-        this.userInfo = JSON.parse( localStorage.getItem("user-info")) || null
+        this.userInfo = JSON.parse( localStorage.getItem("dashboard-info")) || null
     }
 }
 </script>
