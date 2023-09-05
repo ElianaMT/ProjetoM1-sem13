@@ -22,7 +22,10 @@
 
               <v-row>
                   <v-col cols="12" md="12">
-                      <v-select type="text" label="Qual exercício"></v-select>
+                      <v-select type="text" label="Qual exercício"
+                      :items="exercicio_id" 
+                      
+                      ></v-select>
                   </v-col>
 
 
@@ -30,15 +33,26 @@
 
               <v-row>
                   <v-col cols="12" md="5">
-                      <v-text-field type="text" label="Repetições"></v-text-field>
+                      <v-text-field type="number" label="Repetições"
+                      v-model="treino.repetitions"
+                          
+
+
+                      ></v-text-field>
                   </v-col>
 
                   <v-col cols="12" md="3">
-                      <v-text-field type="text" label="Quilos"></v-text-field>
+                      <v-text-field type="number" label="Quilos" 
+                      v-model="treino.weight"
+                      :rules="[value => !!value || 'Os quilos sao obrigatorios'
+                      ]"        
+                      ></v-text-field>
                   </v-col>
 
                   <v-col cols="12" md="4">
-                      <v-text-field type="text" label="Pausa"></v-text-field>
+                      <v-text-field type="text" label="Pausa"
+                     
+                      ></v-text-field>
                   </v-col>
               </v-row>
 
@@ -77,6 +91,22 @@
 </template>
 
 <script>
+export default { 
+  data() {
+    return {
+      treino: { 
+        exercicio_id: [ ],
+        repetitions:"",
+        weight:"",
+        break_time:"",
+        observations:"",
+        day:""
+      },
+      
+    }
+  },
+}
+
 </script>
 
 <style>
