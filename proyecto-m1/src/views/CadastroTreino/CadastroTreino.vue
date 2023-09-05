@@ -52,7 +52,7 @@
                   <v-col cols="12" md="4">
                       <v-text-field type="time" label="Pausa"
                       v-model="treino.break_time"
-                      :rules="[value => !!value || 'Os quilos sao obrigatorios'
+                      :rules="[value => !!value || 'A pausa é obrigatoria'
                       ]" 
                       ></v-text-field>
                   </v-col>
@@ -122,9 +122,4 @@ export default {
   border-color: orange;
 }
 
-.box-1 {
-  border-bottom: solid;
-  border-color: orange;
-
-}
 </style>
