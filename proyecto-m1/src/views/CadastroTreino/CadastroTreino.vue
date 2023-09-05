@@ -18,12 +18,12 @@
 
       <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
 
-          <v-form>
-
+          <v-form ref="form" @submit.prevent="handleSubmit" >
+            
               <v-row>
                   <v-col cols="12" md="12">
                       <v-select type="text" label="Qual exercício"
-                      :items="exercicio_id" 
+                      :items="exercicio" 
                       
                       ></v-select>
                   </v-col>
@@ -97,11 +97,13 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default { 
   data() {
     return {
       treino: { 
-        exercicio_id: [ ],
+        exercicio: [ "ex1", "ex2", "ex3"],
         repetitions:"",
         weight:"",
         break_time:"",
@@ -112,6 +114,25 @@ export default {
       model: "Domingo"
     }
   },
+ methods: {
+  async handleSubmit(){
+    const{valid} = await this.$refs.form.validate()
+    if(!valid){
+      alert("Preencha os dados obrigatorios")
+      return
+    }
+    try {
+            const result= await axios.post("http://localhost:3000/training", this.treino)
+            if(result.status === 201){
+               localStorage.setItem("treino-info", JSON.stringify(result.data))
+               
+            }
+         } catch (error) {
+            alert(error.message)
+
+  }
+  
+ },
 }
 
 </script>
