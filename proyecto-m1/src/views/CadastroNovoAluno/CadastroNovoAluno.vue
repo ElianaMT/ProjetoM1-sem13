@@ -22,48 +22,59 @@
 
                 <v-row>
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Nome completo"></v-text-field>
+                        <v-text-field type="text" label="Nome completo" v-model="alunoNovo.fullname"
+                            :rules="[value => !!value || 'O nome completo é obrigatorio']"></v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Email"></v-text-field>
+                        <v-text-field type="email" label="Email" v-model="alunoNovo.email"></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row class="box-1">
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Contato"></v-text-field>
+                        <v-text-field type="text" label="Contato" v-model="alunoNovo.contact"
+                            :rules="[value => !!value || 'O contato é obrigatorio']"></v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Data de nascimiento"></v-text-field>
+                        <v-text-field type="text" label="Data de nascimiento" v-model="alunoNovo.data_birth"></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
-                    <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Cep"></v-text-field>
+                    <v-col cols="12" md="5">
+                        <v-text-field type="text" label="Cep" v-model="alunoNovo.cep"
+                            :rules="[value => !!value || 'O CEP é obrigatorio']"></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Logaduro"></v-text-field>
+                    <v-col cols="12" md="5">
+                        <v-text-field type="text" label="Logaduro" v-model="alunoNovo.street"
+                            :rules="[value => !!value || 'O logaduro é obrigatorio']"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="2">
+                        <v-text-field type="text" label="Numero" v-model="alunoNovo.number"
+                            :rules="[value => !!value || 'O numero é obrigatorio']"></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col cols="12" md="2">
-                        <v-text-field type="text" label="Estado"></v-text-field>
+                        <v-text-field type="text" label="Estado" v-model="alunoNovo.province"
+                        :rules="[value => !!value || 'O estado é obrigatorio']"></v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="3">
-                        <v-text-field type="text" label="Barrio"></v-text-field>
+                        <v-text-field type="text" label="Barrio" v-model="alunoNovo.neighborhood"
+                            :rules="[value => !!value || 'O barrio é obrigatorio']"></v-text-field>
                     </v-col>
                     <v-col cols="12" md="3">
-                        <v-text-field type="text" label="Cidade"></v-text-field>
+                        <v-text-field type="text" label="Cidade" v-model="alunoNovo.city"
+                            :rules="[value => !!value || 'A cidade é obrigatoria']"></v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="4">
-                        <v-text-field type="text" label="Complemento"></v-text-field>
+                        <v-text-field type="text" label="Complemento" v-model="alunoNovo.complement"></v-text-field>
                     </v-col>
                 </v-row>
 
@@ -84,6 +95,26 @@
 </template>
 
 <script>
+export default{
+    data() {
+        return {
+            alunoNovo: {
+                fullname:"",
+                email:"",
+                contact:"",
+                date_birth:"",
+                cep:"",
+                street:"",
+                number:"",
+                neighborhood:"",
+                city:"",
+                province:"",
+                complement:""
+
+            }
+        }
+    },
+}
 </script>
 
 <style>
