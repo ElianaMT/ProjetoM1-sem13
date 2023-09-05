@@ -1,5 +1,5 @@
 <template>
-    <v-form ref="form"  @submit.prevent="handleSubmit" >
+    <v-form ref="form" @submit.prevent="handleSubmit">
         <v-container>
 
             <v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
@@ -32,23 +32,22 @@
             </v-row>
         </v-container>
 
-        
+
     </v-form>
 
-    <v-table >
-    <thead>
-      <tr>
-        <th>Nome</th>        
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="exercise in exercises" :key="exercise.id">
-      <td>{{product }}</td>      
-      </tr>
-      
-    </tbody>
-  </v-table>
+    <v-table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>nome producto</td>
+            </tr>
 
+        </tbody>
+    </v-table>
 </template>
 
  
@@ -63,29 +62,28 @@ export default {
             }
         }
     },
+
     methods: {
-        async handleSubmit(){}
-        const {valid } = await this.$refs.form.validate()
+        async handleSubmit() {
+            const { valid } = await this.$refs.form.validate()
 
-         if(!valid){
-            alert("Preencha todos os dados")
-            return
-         }
-         try {
-            const result= await axios.post("http://localhost:3000/users", this.cadastroExercicio)
-            if(result.status === 201){
-               localStorage.setItem("exercicio-info", JSON.stringify(result.data))
-               this.$router.push("/")
+            if (!valid) {
+                alert("Preencha todos os dados")
+                return
             }
-         } catch (error) {
-            alert(error.message)
-            
-         }
-         const result = confirm ("Exercicio cadastrado com sucesso")
-         this.$refs.form.reset()       
 
-    },
-   
+            try {
+                const result = await axios.post("http://localhost:3000/exercises", this.cadastroExercicio)
+                if (result.status === 200) {
+                    localStorage.setItem("exercise-info", JSON.stringify(result.data))
+                    const result = confirm("Exercício cadastrado com sucesso")
+                    this.$refs.form.reset()
+                }
+            } catch (error) {
+                alert(error.response.data.error)
+            }
+        }
+    }
 }
 
 
