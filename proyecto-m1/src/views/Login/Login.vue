@@ -65,7 +65,7 @@ export default {
       try {
         const result = await axios.post("http://localhost:3000/sessions", this.usuario)
         if (result.status === 200) {
-          localStorage.setItem("user.info", JSON.stringify(result.data))
+          localStorage.setItem("usuario_token", JSON.stringify(result.data.name))
           this.$router.push("/dashboard")
         }
 
