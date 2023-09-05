@@ -24,7 +24,7 @@
 
         </v-card>
 
-        <v-card class="mx-auto" width="500" prepend-icon="mdi-home">
+        <v-card class="mx-auto" width="500" prepend-icon="mdi-home" to="/gerenciamento-exercicios">
             <template v-slot:title>
                 {{dashboardInfo.amount_exercises}} Exercicios
             </template>
