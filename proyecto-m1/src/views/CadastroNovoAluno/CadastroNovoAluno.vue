@@ -19,8 +19,8 @@
         <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
 
             <v-form ref="form" @submit.prevent="handleSubmit">
-
-
+                {{ novoAlunoInfo.cep}}
+                
                 <v-row>
                     <v-col cols="12" md="6">
                         <v-text-field type="text" label="Nome completo" v-model="alunoNovo.fullname"
@@ -47,32 +47,32 @@
                 <v-row>
                     <v-col cols="12" md="5">
                         <v-text-field type="text" label="Cep" v-model="alunoNovo.cep"
-                            :rules="[value => !!value || 'O CEP é obrigatorio']"></v-text-field>
+                            :rules="[value => !!value || 'O CEP é obrigatorio']"> {{ novoAlunoInfo.cep}}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="5">
                         <v-text-field type="text" label="Logradouro" v-model="alunoNovo.street"
-                            :rules="[value => !!value || 'O logradouro é obrigatorio']"></v-text-field>
+                            :rules="[value => !!value || 'O logradouro é obrigatorio']"> {{ novoAlunoInfo.logradouro}}</v-text-field>
                     </v-col>
                     <v-col cols="12" md="2">
                         <v-text-field type="text" label="Numero" v-model="alunoNovo.number"
-                            :rules="[value => !!value || 'O numero é obrigatorio']"></v-text-field>
+                            :rules="[value => !!value || 'O numero é obrigatorio']">{{ novoAlunoInfo.siafi}}</v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col cols="12" md="2">
                         <v-text-field type="text" label="Estado" v-model="alunoNovo.province"
-                            :rules="[value => !!value || 'O estado é obrigatorio']"></v-text-field>
+                            :rules="[value => !!value || 'O estado é obrigatorio']">{{novoAlunoInfo.uf}}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="3">
                         <v-text-field type="text" label="Bairro" v-model="alunoNovo.neighborhood"
-                            :rules="[value => !!value || 'O bairro é obrigatorio']"></v-text-field>
+                            :rules="[value => !!value || 'O bairro é obrigatorio']">{{novoAlunoInfo.bairro}}</v-text-field>
                     </v-col>
                     <v-col cols="12" md="3">
                         <v-text-field type="text" label="Cidade" v-model="alunoNovo.city"
-                            :rules="[value => !!value || 'A cidade é obrigatoria']"></v-text-field>
+                            :rules="[value => !!value || 'A cidade é obrigatoria']">{{novoAlunoInfo.localidade}}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="4">
@@ -115,7 +115,8 @@ export default {
                 city: "",
                 province: "",
                 complement: ""
-            }
+            },
+            novoAlunoInfo:{}
 
         }
     },
@@ -145,7 +146,13 @@ export default {
 
         }
     },
-    
+    mounted() {
+    axios.get("https://viacep.com.br/ws/01001000/json/")
+    .then(res => this.novoAlunoInfo = res.data)
+    .catch(error => console.log(error))
+
+    this.anovoAlunoInfo = JSON.parse(localStorage.getItem("novoAluno-info")) || null
+}
 
 }
 
