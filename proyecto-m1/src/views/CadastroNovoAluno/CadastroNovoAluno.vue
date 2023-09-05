@@ -18,12 +18,14 @@
 
         <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
 
-            <v-form>
+            <v-form ref="form" @submit.prevent="handleSubmit" >
+                     
 
                 <v-row>
                     <v-col cols="12" md="6">
                         <v-text-field type="text" label="Nome completo" v-model="alunoNovo.fullname"
                             :rules="[value => !!value || 'O nome completo é obrigatorio']"></v-text-field>
+                            
                     </v-col>
 
                     <v-col cols="12" md="6">
@@ -38,7 +40,7 @@
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Data de nascimiento" v-model="alunoNovo.data_birth"></v-text-field>
+                        <v-text-field type="date" label="Data de nascimiento" v-model="alunoNovo.data_birth"></v-text-field>
                     </v-col>
                 </v-row>
 
@@ -49,39 +51,39 @@
                     </v-col>
 
                     <v-col cols="12" md="5">
-                        <v-text-field type="text" label="Logaduro" v-model="alunoNovo.street"
-                            :rules="[value => !!value || 'O logaduro é obrigatorio']"></v-text-field>
+                        <v-text-field type="text" label="Logradouro" v-model="alunoNovo.street"
+                            :rules="[value => !!value || 'O logradouro é obrigatorio']" >{{ alunoNovo.logradouro }}</v-text-field>
                     </v-col>
                     <v-col cols="12" md="2">
                         <v-text-field type="text" label="Numero" v-model="alunoNovo.number"
-                            :rules="[value => !!value || 'O numero é obrigatorio']"></v-text-field>
+                            :rules="[value => !!value || 'O numero é obrigatorio']">{{ alunoNovo.siafi }}</v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col cols="12" md="2">
                         <v-text-field type="text" label="Estado" v-model="alunoNovo.province"
-                        :rules="[value => !!value || 'O estado é obrigatorio']"></v-text-field>
+                        :rules="[value => !!value || 'O estado é obrigatorio']">{{ alunoNovo.uf}}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="3">
-                        <v-text-field type="text" label="Barrio" v-model="alunoNovo.neighborhood"
-                            :rules="[value => !!value || 'O barrio é obrigatorio']"></v-text-field>
+                        <v-text-field type="text" label="Bairro" v-model="alunoNovo.neighborhood"
+                            :rules="[value => !!value || 'O bairro é obrigatorio']">{{ alunoNovo.bairro }}</v-text-field>
                     </v-col>
                     <v-col cols="12" md="3">
                         <v-text-field type="text" label="Cidade" v-model="alunoNovo.city"
-                            :rules="[value => !!value || 'A cidade é obrigatoria']"></v-text-field>
+                            :rules="[value => !!value || 'A cidade é obrigatoria']">{{ alunoNovo.localidade }}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="4">
-                        <v-text-field type="text" label="Complemento" v-model="alunoNovo.complement"></v-text-field>
+                        <v-text-field type="text" label="Complemento" v-model="alunoNovo.complement">{{ alunoNovo.complemento }}</v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row class="d-flex flex-row-reverse">
                     <v-col cols="12" md="2">
                         <v-btn color="orange" class="mt-2" block type="submit">
-                            Buscar
+                            Cadastrar
                         </v-btn>
 
                     </v-col>
@@ -95,9 +97,12 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default{
     data() {
         return {
+            
             alunoNovo: {
                 fullname:"",
                 email:"",
@@ -110,11 +115,28 @@ export default{
                 city:"",
                 province:"",
                 complement:""
-
+                
             }
+            
         }
     },
-}
+    methods: {
+        async handleSubmit(){
+            const{valid} = await this.$refs.form.validate()
+
+            if(!valid){
+                alert("Preencha os dados obrigatorios")
+                return
+            }
+            const result= confirm("Aluno cadastrado con sucesso!")
+            this.$refs.form.reset()
+        }
+    },
+  
+    
+  }
+
+
 </script>
 
 <style>
