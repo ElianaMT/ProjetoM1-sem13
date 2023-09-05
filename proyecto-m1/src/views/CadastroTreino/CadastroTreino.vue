@@ -60,7 +60,11 @@
 
               <v-row>
                   <v-col cols="12" md="12">
-                      <v-text-field type="text" label="Dia da semana"></v-text-field>
+                      <v-select type="text" label="Dia da semana"
+                      v-model="model"
+                      :items="items"
+                      
+                      ></v-select>
                   </v-col>
 
               </v-row>
@@ -104,7 +108,8 @@ export default {
         observations:"",
         day:""
       },
-      
+      items: ["Segunda-feira", "Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira", "Sábado" ,"Domingo"],
+      model: "Domingo"
     }
   },
 }
