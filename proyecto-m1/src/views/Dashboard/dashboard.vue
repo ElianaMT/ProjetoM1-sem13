@@ -16,7 +16,7 @@
 
 
             <v-card-actions>
-                <v-btn variant="outlined" color="orange">
+                <v-btn variant="outlined" color="orange" to="/gerenciamento-alunos">
                     Adicionar
                 </v-btn>
             </v-card-actions>
