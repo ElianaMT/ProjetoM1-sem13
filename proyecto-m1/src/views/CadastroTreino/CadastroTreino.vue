@@ -35,9 +35,9 @@
                   <v-col cols="12" md="5">
                       <v-text-field type="number" label="Repetições"
                       v-model="treino.repetitions"
-                          
-
-
+                      :rules="[value => !!value || 'A quantidade é obrigatoria',
+                      value => value>0 || 'Nao minimo uma repeticao'
+                      ]"   
                       ></v-text-field>
                   </v-col>
 
