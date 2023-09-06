@@ -11,16 +11,30 @@ import *as yup from "yup"
 export default{ 
     data(){ 
         return{ 
-            exercises:""
+            exercises:"",
+            
         }
 
     },
     methods:{ 
         async handleSubmit(){
-            const schema= yup.object().shape({ 
+
+            try {
+                const schema= yup.object().shape({ 
                 exercises: yup.string().required("O cadastro do exercício é obrigatorio")
             })
-           alert("tou aqui")
+            schema.validateSync({ 
+                exercises: this.exercises
+               
+            }, {abortEarly:false })
+                
+            } catch (error) {
+                if(error instanceof yup.ValidationError){
+                    alert(error)
+                }
+                
+            }           
+           
         }
     }
 }
