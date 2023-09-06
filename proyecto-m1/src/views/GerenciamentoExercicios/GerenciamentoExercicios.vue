@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import *as yup from "yup"
+
 export default{ 
     data(){ 
         return{ 
@@ -15,6 +17,9 @@ export default{
     },
     methods:{ 
         async handleSubmit(){
+            const schema= yup.object().shape({ 
+                exercises: yup.string().required("O cadastro do exercício é obrigatorio")
+            })
            alert("tou aqui")
         }
     }
