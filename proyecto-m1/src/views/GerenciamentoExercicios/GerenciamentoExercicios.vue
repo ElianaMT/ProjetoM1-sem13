@@ -6,7 +6,7 @@
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
                         <v-icon color="orange" size="x-large">mdi-arm-flex</v-icon>
-                        
+
                     </v-sheet>
                 </v-col>
 
@@ -48,14 +48,12 @@
             </tr>
         </tbody>
     </v-table>
-
-    
 </template>
 
  
 <script>
 import *as yup from "yup"
-import { captureErrorYup} from "../../utils/captureErrorYup"
+import { captureErrorYup } from "../../utils/captureErrorYup"
 import axios from "axios"
 
 
@@ -63,7 +61,7 @@ export default {
     data() {
         return {
             exercises: "",
-            errors:  {}      
+            errors: {}
         }
     },
 
@@ -71,26 +69,45 @@ export default {
         handleSubmit() {
             try {
                 const schema = yup.object().shape({
-                exercises: yup.string().requiered("O nome do exercicio é obrigatorio")
-            })
-            schema.validateSync({ 
-                exercises: this.exercises
-            }, { abortEarly:false })
-
-            axios({
-                url: "http://localhost:3000/exercises",
-                method: "post",
-                data:{
+                    exercises: yup.string().requiered("O nome do exercicio é obrigatorio")
+                })
+                schema.validateSync({
                     exercises: this.exercises
-                }
-            })
-                
+                },
+                    { abortEarly: false })
+
+                const token = localStorage.getItem('usuario_token')
+
+                axios({
+                    url: "http://localhost:3000/exercises",
+                    method: "post",
+                    data: {
+                        exercises: this.exercises
+                    },
+
+                    headers: {
+                        Authorization: `Bearen ${token}`
+                    }
+                })
+                    // escenario positivo y negativo con token
+                    .then(() => {
+                        alert('Exercício cadastrado com sucesso')
+                        this.exercises = ''
+                        
+                    })
+                    .catch(() => {
+                        alert('Houve um erro ao realizar o cadastro')
+                    })
+
+
+                //erro con yup
+
             } catch (error) {
-                if(error instanceof yup.ValidationError){
+                if (error instanceof yup.ValidationError) {
                     this.errors = captureErrorYup(error)
                 }
-                
-            }          
+
+            }
         }
     }
 }
