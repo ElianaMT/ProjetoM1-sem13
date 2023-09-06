@@ -1,6 +1,6 @@
 <template>
     <div class="title">
-        <h1>Bem-vindo, nome aluno {{userInfo.name}}</h1>      
+        <h1>Bem-vindo,</h1> {{userInfo.usuario_name}}       
            
         
     </div>
@@ -46,14 +46,14 @@ export default{
             userInfo:{}            
         }
     },
-
-    mounted() {
+    
+        mounted() {
         axios.get("http://localhost:3000/dashboard")
         .then(res => this.dashboardInfo= res.data)
         .catch(error => console.log(error))
 
-        this.userInfo = JSON.parse( localStorage.getItem("user.info")) || null
-    }
+        this.userInfo = JSON.parse( localStorage.getItem("usuario_name")) || null
+    }       
 }
 </script>
 
