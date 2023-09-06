@@ -20,7 +20,7 @@
 
             <v-row>
                 <v-col cols="12" md="10">
-                    <v-text-field type="text" label="Digite o nome do exercício" v-model="cadastroExercicio.exercises"
+                    <v-text-field type="text" label="Digite o nome do exercício" v-model="exercises"
                         :rules="[value => !!value || 'O cadastro do exercício é obrigatorio']"></v-text-field>
                 </v-col>
 
@@ -46,7 +46,6 @@
             <tr>
                 <td>nome producto</td>
             </tr>
-
         </tbody>
     </v-table>
 
@@ -55,36 +54,34 @@
 
  
 <script>
-import axios from 'axios';
+import *as yup from "yup"
+import { captureErrorYup} from "../../utils/captureErrorYup"
+
 
 export default {
     data() {
         return {
-            cadastroExercicio: {
-                exercises: ""
-            }
+            exercises: "",
+            errors:  {}      
         }
     },
 
     methods: {
-        async handleSubmit() {
-            const { valid } = await this.$refs.form.validate()
-
-            if (!valid) {
-                alert("Preencha todos os dados")
-                return
-            }
-
+        handleSubmit() {
             try {
-                const result = await axios.post("http://localhost:3000/exercises", this.cadastroExercicio)
-                if (result.status === 200) {
-                    localStorage.setItem("exercise_info", JSON.stringify(result.data))
-                    const result = confirm("Exercício cadastrado com sucesso")
-                    this.$refs.form.reset()
-                }
+                const schema = yup.object().shape({
+                exercises: yup.string().requiered("O nome do exercicio é obrigatorio")
+            })
+            schema.validateSync({ 
+                exercises: this.exercises
+            }, { abortEarly:false })
+                
             } catch (error) {
-                alert(error.response.data.error)
-            }
+                if(error instanceof yup.ValidationError){
+                    this.errors = captureErrorYup(error)
+                }
+                
+            }          
         }
     }
 }
