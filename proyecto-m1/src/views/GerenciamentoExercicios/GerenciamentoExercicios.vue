@@ -56,6 +56,7 @@
 <script>
 import *as yup from "yup"
 import { captureErrorYup} from "../../utils/captureErrorYup"
+import axios from "axios"
 
 
 export default {
@@ -75,6 +76,14 @@ export default {
             schema.validateSync({ 
                 exercises: this.exercises
             }, { abortEarly:false })
+
+            axios({
+                url: "http://localhost:3000/exercises",
+                method: "post",
+                data:{
+                    exercises: this.exercises
+                }
+            })
                 
             } catch (error) {
                 if(error instanceof yup.ValidationError){
