@@ -20,13 +20,16 @@
 
             <v-row>
                 <v-col cols="12" md="10">
-                    <v-text-field type="text" label="Digite o nome do exercício" v-model="exercises"
-                        :rules="[value => !!value || 'O cadastro do exercício é obrigatorio']"></v-text-field>
+                    <v-text-field type="text" label="Digite o nome do exercício" v-model="exercises">
+                    </v-text-field>
                 </v-col>
 
                 <v-col cols="12" md="2">
                     <v-btn color="orange" class="mt-2" block type="submit">
                         Cadastrar
+                    </v-btn>
+                    <v-btn color="orange" class="mt-2" block @click="loadExercicios">
+                        Cargar exercicios
                     </v-btn>
 
                 </v-col>
@@ -36,6 +39,9 @@
 
     </v-form>
 
+
+    <li v-for= "exercicio in exercicios" :key="exercicio.id">{{exercicio.nome }}</li>
+
     <v-table>
         <thead>
             <tr>
@@ -44,7 +50,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>nome producto</td>
+                <td >nome productos</td>
             </tr>
         </tbody>
     </v-table>
@@ -58,10 +64,12 @@ import axios from "axios"
 
 
 export default {
+    
     data() {
         return {
             exercises: "",
-            errors: {}
+            errors: {},
+            exercicios:[]
         }
     },
 
@@ -80,7 +88,7 @@ export default {
 
                 axios({
                     url: "http://localhost:3000/exercises",
-                    method: "post",
+                    method: "POST",
                     data: {
                         exercises: this.exercises
                     },
@@ -93,7 +101,8 @@ export default {
                     .then(() => {
                         alert('Exercício cadastrado com sucesso')
                         this.exercises = ''
-                        
+
+
                     })
                     .catch(() => {
                         alert('Houve um erro ao realizar o cadastro')
@@ -108,6 +117,28 @@ export default {
                 }
 
             }
+            // llamar a los exercicios cadastrados
+        },
+        loadExercicios() {
+            const token = localStorage.getItem('usuario_token')
+            axios({
+                url: "http://localhost:3000/exercises",
+                method: "GET",
+                headers: {
+                Authorization: `Bearen ${token}`
+        }
+            })
+                .then((response) => {
+                    this.exercicios= response.data.description
+                    
+
+                    alert('deu certo')
+                })
+                .catch(() => {
+                    alert('deu ruim')
+                })
+
+
         }
     }
 }
