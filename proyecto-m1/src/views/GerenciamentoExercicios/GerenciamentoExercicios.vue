@@ -5,7 +5,8 @@
             <v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
-                        <v-icon color="orange">mdi-cart</v-icon>
+                        <v-icon color="orange" size="x-large">mdi-arm-flex</v-icon>
+                        
                     </v-sheet>
                 </v-col>
 
@@ -48,6 +49,8 @@
 
         </tbody>
     </v-table>
+
+    
 </template>
 
  
