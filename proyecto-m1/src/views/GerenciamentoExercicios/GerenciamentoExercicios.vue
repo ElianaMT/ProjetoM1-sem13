@@ -67,9 +67,12 @@ export default {
 
    mounted() {    
     axios.get("http://localhost:3000/exercises")
-    .then(res => this.loadExercicios = res.data)  
+    .then((response) =>{ this.loadExercicios = response.data}  
+    
+    ) 
+    
     .catch(()=>{
-        alert("Nao foi possivel recuprar os exercícios")
+        alert("Nao foi possivel recuperar os exercícios")
     })  
       
    },
@@ -89,8 +92,6 @@ export default {
                localStorage.setItem("exercicio_info", JSON.stringify(result.data))               
                const result = confirm ("Exercicio cadastrado com sucesso")
                this.$refs.form.reset()  
-               
-              
                
             }
          } catch (error) {
