@@ -52,7 +52,7 @@
         <tbody>
             <tr v-for= "nomeAluno in loadAlunos" :key="nomeAluno.id" >
                 <td>{{nomeAluno.id}}</td>
-                <td>{{nomeAluno.name}} </td>
+                <td>{{nomeAluno.fullname}} </td>
             </tr>
             
         </tbody>
