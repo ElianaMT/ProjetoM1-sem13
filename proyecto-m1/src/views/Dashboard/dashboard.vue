@@ -1,8 +1,6 @@
 <template>
     <div class="title">
-        <h1>Bem-vindo,</h1> {{userInfo.usuario_name}}       
-           
-        
+        <h1>Bem-vindo,</h1> {{userInfo.name}}         
     </div>
 
     <div class="container">
@@ -52,7 +50,7 @@ export default{
         .then(res => this.dashboardInfo= res.data)
         .catch(error => console.log(error))
 
-        this.userInfo = JSON.parse( localStorage.getItem("usuario_name")) || null
+        this.userInfo = JSON.parse( localStorage.getItem("user.info")) || null
     }       
 }
 </script>
