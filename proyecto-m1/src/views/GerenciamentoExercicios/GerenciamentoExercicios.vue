@@ -37,13 +37,16 @@
     <v-table>
         <thead>
             <tr>
+                <th>Nº</th>
                 <th>Nome do Exercício </th>
             </tr>
         </thead>
         <tbody>
-            <tr >
-                <td>{{this.exercicio.exercises}}</td>
+            <tr v-for= "nomeExercicio in loadExercicios" :key="nomeExercicio.id" >
+                <td>{{nomeExercicio.id}}</td>
+                <td>{{nomeExercicio.description}}</td>
             </tr>
+            
         </tbody>
     </v-table>
 
@@ -53,17 +56,21 @@
 import axios from "axios"
 
 export default { 
-   data() { 
+    data() { 
       return{ 
+        loadExercicios:[],
          exercicio:{ 
             exercises:"",  
          }  
         }     
    },
 
-   mounted() {
+   mounted() {    
     axios.get("http://localhost:3000/exercises")
-    .then(res => this.exercicio.exercises = res.data.id)    
+    .then(res => this.loadExercicios = res.data)  
+    .catch(()=>{
+        alert("Nao foi possivel recuprar os exercícios")
+    })  
       
    },
 
