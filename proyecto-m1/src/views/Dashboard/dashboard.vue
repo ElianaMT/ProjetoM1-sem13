@@ -1,6 +1,6 @@
 <template>
     <div class="title">
-        <h1>Bem-vindo,</h1> {{userInfo.name}}         
+        <h1>Bem-vindo, {{userInfo.name}}  </h1>        
     </div>
 
     <div class="container">
