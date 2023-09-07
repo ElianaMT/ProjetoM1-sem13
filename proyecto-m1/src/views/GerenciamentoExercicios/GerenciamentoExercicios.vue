@@ -37,12 +37,12 @@
     <v-table>
         <thead>
             <tr>
-                <th>Nome</th>
+                <th>Nome do Exercício </th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>nome producto</td>
+            <tr >
+                <td>{{this.exercicio.exercises}}</td>
             </tr>
         </tbody>
     </v-table>
@@ -57,11 +57,16 @@ export default {
       return{ 
          exercicio:{ 
             exercises:"",  
-            
-                   
          }  
         }     
    },
+
+   mounted() {
+    axios.get("http://localhost:3000/exercises")
+    .then(res => this.exercicio.exercises = res.data.id)    
+      
+   },
+
    methods: {
        async handleSubmit () {
          const {valid } = await this.$refs.form.validate()
@@ -74,9 +79,11 @@ export default {
          try {
             const result= await axios.post("http://localhost:3000/exercises",{description:this.exercicio.exercises} )
             if(result.status === 201){
-               localStorage.setItem("exercicio_info", JSON.stringify(result.data))
+               localStorage.setItem("exercicio_info", JSON.stringify(result.data))               
                const result = confirm ("Exercicio cadastrado com sucesso")
                this.$refs.form.reset()  
+               
+              
                
             }
          } catch (error) {
