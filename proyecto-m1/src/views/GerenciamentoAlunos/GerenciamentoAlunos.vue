@@ -28,8 +28,8 @@
 
             <v-row>
                 <v-col cols="12" md="10">
-                    <v-text-field type="text" label="Digite o nome do exercício" v-model="cadastroExercicio.exercises"
-                        :rules="[value => !!value || 'O cadastro do exercício é obrigatorio']"></v-text-field>
+                    <v-text-field type="text" label="Digite o nome do exercício" 
+                        ></v-text-field>
                 </v-col>
 
                 <v-col cols="12" md="2">
@@ -41,23 +41,27 @@
             </v-row>
         </v-container>
     </v-form>
+
+    <v-table>
+        <thead>
+            <tr>
+                <th>Nome do Aluno</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for= "nomeExercicio in loadExercicios" :key="nomeExercicio.id" >
+                <td>{{nomeExercicio.id}}</td>
+                <td>{{nomeExercicio.description}}</td>
+            </tr>
+            
+        </tbody>
+    </v-table>
+
 </template>
 
  
 <script>
-export default {
-    data() {
-        return {
-            cadastroExercicio: {
-                exercises: "",
-
-            },
-
-        }
-    },
-
-}
-
 
 </script>
 
