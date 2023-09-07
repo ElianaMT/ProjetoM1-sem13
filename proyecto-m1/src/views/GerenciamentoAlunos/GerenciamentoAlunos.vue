@@ -41,7 +41,8 @@
             </v-row>
         </v-container>
     </v-form>
-
+   
+   
     <v-table>
         <thead>
             <tr>
@@ -52,7 +53,7 @@
         <tbody>
             <tr v-for= "nomeAluno in loadAlunos" :key="nomeAluno.id" >
                 <td>{{nomeAluno.id}}</td>
-                <td>{{nomeAluno.fullname}} </td>
+                <td>{{nomeAluno.description.fullname}} </td>
             </tr>
             
         </tbody>
@@ -62,6 +63,8 @@
 
  
 <script>
+import axios from "axios"
+
 export default { 
     data() { 
       return{ 
