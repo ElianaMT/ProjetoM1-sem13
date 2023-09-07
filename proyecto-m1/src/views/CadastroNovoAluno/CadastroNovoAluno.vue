@@ -1,3 +1,5 @@
 <template>
- Cadastro Novo Aluno 
+    <div>
+        
+    </div>
 </template>
