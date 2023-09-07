@@ -77,7 +77,7 @@ export default {
     ) 
     
     .catch(()=>{
-        alert("Nao foi possivel recuperar os exercícios")
+        alert("Nao foi possivel recuperar os nomes dos alunos")
     })  
       
    },
@@ -87,10 +87,6 @@ export default {
 </script>
 
 <style>
-.title {
-    padding-bottom: 25px;
-    color: orange;
-}
 
 .encabezado {
     border-bottom: solid;
