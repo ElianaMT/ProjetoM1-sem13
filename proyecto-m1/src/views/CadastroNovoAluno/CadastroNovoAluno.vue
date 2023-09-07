@@ -23,63 +23,99 @@
 
                 <v-row>
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Nome completo" v-model="alunoNovo.fullname"
-                            :rules="[value => !!value || 'O nome completo é obrigatorio']"></v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Nome completo" 
+                        v-model="alunoNovo.fullname"
+                        :rules="[value => !!value || 'O nome completo é obrigatorio']"></v-text-field>
 
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field type="email" label="Email" v-model="alunoNovo.email"></v-text-field>
+                        <v-text-field 
+                        type="email" 
+                        label="Email" 
+                        v-model="alunoNovo.email"></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row class="box-1">
                     <v-col cols="12" md="6">
-                        <v-text-field type="text" label="Contato" v-model="alunoNovo.contact"
-                            :rules="[value => !!value || 'O contato é obrigatorio']"></v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Contato" 
+                        v-model="alunoNovo.contact"
+                        :rules="[value => !!value || 'O contato é obrigatorio']"></v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field type="date" label="Data de nascimiento" v-model="alunoNovo.date_birth"></v-text-field>
+                        <v-text-field 
+                        type="date" 
+                        label="Data de nascimiento" 
+                        v-model="alunoNovo.date_birth"></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col cols="12" md="5">
-                        <v-text-field type="text" label="Cep" v-model="alunoNovo.cep"
-                            :rules="[value => !!value || 'O CEP é obrigatorio']">  {{ novoAlunoInfo.cep }}</v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Cep" 
+                        v-model="alunoNovo.cep"
+                        :rules="[value => !!value || 'O CEP é obrigatorio']">  
+                        {{ novoAlunoInfo.cep }}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="5">
-                        <v-text-field type="text" label="Logradouro" v-model="alunoNovo.street"
-                            :rules="[value => !!value || 'O logradouro é obrigatorio']"> {{
-                                novoAlunoInfo.logradouro }}</v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Endereco" 
+                        v-model="alunoNovo.street"
+                        :rules="[value => !!value || 'O endereco é obrigatorio']"> 
+                        {{novoAlunoInfo.logradouro }}</v-text-field>
                     </v-col>
                     <v-col cols="12" md="2">
-                        <v-text-field type="text" label="Numero" v-model="alunoNovo.number"
-                            :rules="[value => !!value || 'O numero é obrigatorio']">{{ novoAlunoInfo.siafi }}</v-text-field>
+                        <v-text-field 
+                        type="number" 
+                        label="Numero" 
+                        v-model="alunoNovo.number"
+                        :rules="[value => !!value || 'O numero é obrigatorio']">
+                        {{ novoAlunoInfo.siafi }}</v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col cols="12" md="2">
-                        <v-text-field type="text" label="Estado" v-model="alunoNovo.province"
-                            :rules="[value => !!value || 'O estado é obrigatorio']">{{ novoAlunoInfo.uf }}</v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Estado" 
+                        v-model="alunoNovo.province"
+                        :rules="[value => !!value || 'O estado é obrigatorio']">
+                        {{ novoAlunoInfo.uf }}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="3">
-                        <v-text-field type="text" label="Bairro" v-model="alunoNovo.neighborhood"
-                            :rules="[value => !!value || 'O bairro é obrigatorio']">{{ novoAlunoInfo.bairro
-                            }}</v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Bairro" 
+                        v-model="alunoNovo.neighborhood"
+                        :rules="[value => !!value || 'O bairro é obrigatorio']">
+                        {{ novoAlunoInfo.bairro}}</v-text-field>
                     </v-col>
                     <v-col cols="12" md="3">
-                        <v-text-field type="text" label="Cidade" v-model="alunoNovo.city"
-                            :rules="[value => !!value || 'A cidade é obrigatoria']">{{ novoAlunoInfo.localidade
-                            }}</v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Cidade" 
+                        v-model="alunoNovo.city"
+                        :rules="[value => !!value || 'A cidade é obrigatoria']">
+                        {{ novoAlunoInfo.localidade}}</v-text-field>
                     </v-col>
 
                     <v-col cols="12" md="4">
-                        <v-text-field type="text" label="Complemento" v-model="alunoNovo.complement"></v-text-field>
+                        <v-text-field 
+                        type="text" 
+                        label="Complemento" 
+                        v-model="alunoNovo.complement"></v-text-field>
                     </v-col>
                 </v-row>
 
@@ -105,7 +141,6 @@ import axios from "axios"
 export default {
     data() {
         return {
-
             alunoNovo: {
                 fullname: "",
                 email: "",
@@ -135,7 +170,7 @@ export default {
             try {
                 const result = await axios.post("http://localhost:3000/students", { description: this.alunoNovo })
 
-                if (result === 200) {
+                if (result.status === 200) {
                     localStorage.setItem("novoAluno_info", JSON.stringify(result.data))
                     alert("Aluno cadastrado con sucesso!")
                     this.$refs.form.reset()
