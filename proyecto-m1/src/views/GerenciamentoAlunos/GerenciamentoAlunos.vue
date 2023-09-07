@@ -50,9 +50,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for= "nomeExercicio in loadExercicios" :key="nomeExercicio.id" >
-                <td>{{nomeExercicio.id}}</td>
-                <td>{{nomeExercicio.description}}</td>
+            <tr v-for= "nomeAluno in loadAlunos" :key="nomeAluno.id" >
+                <td>{{nomeAluno.id}}</td>
+                <td>{{nomeAluno.name}} </td>
             </tr>
             
         </tbody>
@@ -62,6 +62,27 @@
 
  
 <script>
+export default { 
+    data() { 
+      return{ 
+        loadAlunos:[]
+         
+         }  
+        },   
+   
+   mounted() {    
+    axios.get("http://localhost:3000/students")
+    .then((response) =>{ this.loadAlunos = response.data}  
+    
+    ) 
+    
+    .catch(()=>{
+        alert("Nao foi possivel recuperar os exercícios")
+    })  
+      
+   },
+}
+
 
 </script>
 
