@@ -90,7 +90,7 @@ export default {
             const result= await axios.post("http://localhost:3000/exercises",{description:this.exercicio.exercises} )
             if(result.status === 201){
                localStorage.setItem("exercicio_info", JSON.stringify(result.data))               
-               const result = confirm ("Exercicio cadastrado com sucesso")
+               alert("Exercicio cadastrado com sucesso")
                this.$refs.form.reset()  
                
             }
