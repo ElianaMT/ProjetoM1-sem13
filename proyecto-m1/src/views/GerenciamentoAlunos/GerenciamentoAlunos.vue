@@ -17,7 +17,7 @@
 
                 <v-col cols="2" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-2">
-                        <v-btn color="orange" class="m-2" block type="submit">
+                        <v-btn color="orange" class="m-2" block type="submit" to="/cadastro-novo-aluno">
                             Novo
                         </v-btn>
                     </v-sheet>
