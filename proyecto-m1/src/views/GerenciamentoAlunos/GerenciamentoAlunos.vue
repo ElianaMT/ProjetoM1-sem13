@@ -64,7 +64,7 @@
                             </v-col>
 
                             <v-col cols="12" md="2">
-                                <v-btn color="orange" class="mt-auto" block type="submit" to="/gerenciamento-exercicios">
+                                <v-btn color="orange" class="mt-auto" block type="submit" @click="()=>redirect(Aluno.id)">
                                     Ver
                                 </v-btn>
 
@@ -95,6 +95,7 @@ export default {
     mounted() {
         this.loadAlunos()
     },
+
     methods: {
         loadAlunos() {
             axios({
@@ -109,7 +110,11 @@ export default {
                     alert("Nao foi possivel recuperar os nomes dos alunos")
                 })
 
+        },
+        redirect(id){
+            this.$router.push(`/gerenciamento-exercicios/${id}`)
         }
+        
     }
 }
 
