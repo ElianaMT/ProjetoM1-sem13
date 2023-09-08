@@ -28,8 +28,7 @@
 
             <v-row>
                 <v-col cols="12" md="10">
-                    <v-text-field type="text" label="Digite o nome do exercício" 
-                        ></v-text-field>
+                    <v-text-field type="text" label="Digite o nome do exercício"></v-text-field>
                 </v-col>
 
                 <v-col cols="12" md="2">
@@ -41,56 +40,69 @@
             </v-row>
         </v-container>
     </v-form>
-   
+
    
     <v-table>
         <thead>
             <tr>
+                <th>Nº</th>
                 <th>Nome do Aluno</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for= "nomeAluno in loadAlunos" :key="nomeAluno.id" >
-                <td>{{nomeAluno.id}}</td>
-                <td>{{nomeAluno.description.fullname}} </td>
+            <tr v-for="Aluno in Alunos" :key="Aluno.id">
+                <td>{{ Aluno.id }}</td>
+                <td>{{ Aluno.name }} </td>
+                <td>
+                    <v-btn color="orange" class="mt-2" block type="submit">
+                        Montar treino
+                    </v-btn>
+                    <v-btn color="orange" class="mt-2" block type="submit">
+                        Ver
+                    </v-btn>
+                </td>
             </tr>
-            
+
         </tbody>
     </v-table>
-
 </template>
 
  
 <script>
 import axios from "axios"
 
-export default { 
-    data() { 
-      return{ 
-        loadAlunos:[]
-         
-         }  
-        },   
-   
-   mounted() {    
-    axios.get("http://localhost:3000/students")
-    .then((response) =>{ this.loadAlunos = response.data}  
-    
-    ) 
-    
-    .catch(()=>{
-        alert("Nao foi possivel recuperar os nomes dos alunos")
-    })  
-      
-   },
-}
+export default {
+    data() {
+        return {
+            Alunos: []
+        }
+    },
 
+    mounted() {
+        this.loadAlunos()
+    },
+    methods: {
+           loadAlunos() {
+            axios({
+                url: "http://localhost:3000/students",
+                method: "get"
+            })
+                .then((response) => {
+                    this.Alunos = response.data.students
+                })
+
+                .catch(() => {
+                    alert("Nao foi possivel recuperar os nomes dos alunos")
+                })
+
+        }
+    }
+}
 
 </script>
 
 <style>
-
 .encabezado {
     border-bottom: solid;
     border-color: orange;
