@@ -41,7 +41,7 @@
         </v-container>
     </v-form>
 
-   
+
     <v-table>
         <thead>
             <tr>
@@ -55,10 +55,10 @@
                 <td>{{ Aluno.id }}</td>
                 <td>{{ Aluno.name }} </td>
                 <td>
-                    <v-btn color="orange" class="mt-2" block type="submit">
+                    <v-btn color="orange" class="mt-2" block type="submit" to="/cadastro-treino">
                         Montar treino
                     </v-btn>
-                    <v-btn color="orange" class="mt-2" block type="submit">
+                    <v-btn color="orange" class="mt-2" block type="submit" to="/gerenciamento-exercicios">
                         Ver
                     </v-btn>
                 </td>
@@ -83,7 +83,7 @@ export default {
         this.loadAlunos()
     },
     methods: {
-           loadAlunos() {
+        loadAlunos() {
             axios({
                 url: "http://localhost:3000/students",
                 method: "get"
