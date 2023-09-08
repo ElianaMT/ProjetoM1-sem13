@@ -53,7 +53,7 @@
 
             <v-select
             label="Tipo de plano"
-            v-model="model"
+            v-model="usuario.type_plan"
            :items="items"
            :rules="[value => !!value || 'Selecione um item ']"
             ></v-select>
@@ -96,18 +96,24 @@ export default {
             email:"",
             password:"",
             confirmacaoSenha:"",
-            type_plan:""
+            type_plan:"Bronze"
          },
-         items:[{ title:"Bronze", 
-         value:"bronze"},
-         { title:"Prata", 
-         value:"silver"},
-         { title:"Ouro", 
-         value:"gold"},
-        
-      ],
+         items: [
+            {
+               title: "Bronze",
+               value: "bronze"
+            },
+            {
+               title: "Prata",
+               value: "silver"
+            },
+            {
+               title: "Ouro",
+               value: "gold"
+            },
 
-         model: "Bronze"
+         ],
+       
       }
    },
    methods: {
