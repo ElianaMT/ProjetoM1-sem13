@@ -76,9 +76,29 @@
             </tr>
 
         </tbody>
-    </v-table>
+    </v-table>  
 
       </v-form>
+
+
+      <v-form>
+          <v-table>
+            <thead>
+                <tr> 
+                  <th> 
+                    Hoje
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="treino in treinos" :key="treino.id">  
+                    <td>{{treino.id}}|{{treino.day }}|{{treino.exercise_id }}|{{treino.weight }}|{{treino.repetitions}}|{{treino.break_time }}</td>
+                    
+                </tr>            
+            </tbody>
+        </v-table>
+      </v-form>
+
     </v-card>
 
 
@@ -91,20 +111,30 @@ import axios from "axios"
 export default{ 
   data() {
     return {
-      treino:{
-        workout_id: "",
-        student_id:"",
-        day_of_week:"",
-      },
-      usuariosLista : []
+      treinos : [],
+        
     }
   },
+  mounted() {
+        this.loadTreinos()
+    },
 
-  
+    methods: {
+      loadTreinos(){
+        axios({ 
+          url: "http://localhost:3000/workouts?student_id=:id",
+          method: "get"
+        })
+        .then((response) => {
+                    this.treinos = response.data.workouts
+                })
 
-    
-
-  
+                .catch(() => {
+                    alert("Nao foi possivel recuperar os treinos")
+                })
+      }
+      
+    },
 
 }
   
