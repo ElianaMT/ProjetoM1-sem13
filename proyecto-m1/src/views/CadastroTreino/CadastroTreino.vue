@@ -22,18 +22,16 @@
           <v-form ref="form" @submit.prevent="handleSubmit" >
             
               <v-row>
-                <v-col cols="12" md="12">
-                      <v-text-field type="text" label="Id student"
-                      v-model="treino.student_id"                      
-                      ></v-text-field>
-                  </v-col>
+                
                   <v-col cols="12" md="12">
-                      <v-select type="text" label="Qual exercício"
+                      <v-select type="text" 
+                      label="Selecione o exercício"
                       :items="exerciciosLista"
-                      v-model= "treino.exercise_id"                      
+                      v-model= "treino.exercise_id"  
+                      item-title="description"     
+                      item-value="id"               
                       ></v-select>
                   </v-col>
-
 
               </v-row>
 
@@ -145,31 +143,37 @@ export default {
         {
         title:"Domingo",
         value: "domingo"
-        },
+        }
+      ] ,
 
-      ]      
+      exerciciosLista:[] 
     }
   },
  methods: {
-  async handleSubmit(){
-    const{valid} = await this.$refs.form.validate()
-    if(!valid){
-      alert("Preencha os dados obrigatorios")
-      return
-    }
-    try {
-            const result= await axios.post("http://localhost:3000/workouts", this.treino)
-            if(result.status === 201){
-               localStorage.setItem("treino-info", JSON.stringify(result.data))
-               
-            }
-         } catch (error) {
-            alert(error.message)
+    async handleSubmit() {
+      const { valid } = await this.$refs.form.validate()
+      if (!valid) {
+        alert("Preencha os dados obrigatorios")
+        return
+      }
+      try {
+        const result = await axios.post("http://localhost:3000/workouts", this.treino)
+        if (result.status === 201) {
+          localStorage.setItem("treino-info", JSON.stringify(result.data))
 
-  }
-  
- },
- }
+        }
+      } catch (error) {
+        alert(error.message)
+
+      }
+
+    }
+  },
+  mounted() {
+    axios.get("http://localhost:3000/exercises")
+    .then(res => this.exerciciosLista = res.data)
+
+  },
 }
 
 </script>
