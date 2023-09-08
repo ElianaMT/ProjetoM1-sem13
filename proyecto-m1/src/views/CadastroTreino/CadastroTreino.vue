@@ -21,9 +21,15 @@
           <v-form ref="form" @submit.prevent="handleSubmit" >
             
               <v-row>
+                <v-col cols="12" md="12">
+                      <v-text-field type="text" label="Id student"
+                      v-model="treino.student_id"
+                      
+                      ></v-text-field>
+                  </v-col>
                   <v-col cols="12" md="12">
                       <v-select type="text" label="Qual exercício"
-                      :items="exercicio" 
+                      :items="exercise_id" 
                       
                       ></v-select>
                   </v-col>
@@ -103,7 +109,8 @@ export default {
   data() {
     return {
       treino: { 
-        exercicio: [ "ex1", "ex2", "ex3"],
+        student_id:"",
+        exercice_id: "",
         repetitions:"",
         weight:"",
         break_time:"",
@@ -122,7 +129,7 @@ export default {
       return
     }
     try {
-            const result= await axios.post("http://localhost:3000/training", this.treino)
+            const result= await axios.post("http://localhost:3000/workouts", this.treino)
             if(result.status === 201){
                localStorage.setItem("treino-info", JSON.stringify(result.data))
                
