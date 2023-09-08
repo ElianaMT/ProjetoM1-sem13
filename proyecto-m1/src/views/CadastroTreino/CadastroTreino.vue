@@ -111,7 +111,7 @@ export default {
         exercise_id: 0,
         repetitions:0,
         weight:0,
-        break_time:0,
+        break_time:"",
         observations:"",
         day:"segunda"
       },
