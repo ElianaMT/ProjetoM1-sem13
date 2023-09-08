@@ -17,20 +17,20 @@
 
 
       <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
+        {{ treino}}
 
           <v-form ref="form" @submit.prevent="handleSubmit" >
             
               <v-row>
                 <v-col cols="12" md="12">
                       <v-text-field type="text" label="Id student"
-                      v-model="treino.student_id"
-                      
+                      v-model="treino.student_id"                      
                       ></v-text-field>
                   </v-col>
                   <v-col cols="12" md="12">
                       <v-select type="text" label="Qual exercício"
-                      :items="exercise_id" 
-                      
+                      :items="exerciciosLista"
+                      v-model= "treino.exercise_id"                      
                       ></v-select>
                   </v-col>
 
@@ -66,8 +66,8 @@
 
               <v-row>
                   <v-col cols="12" md="12">
-                      <v-select type="text" label="Dia da semana"
-                      v-model="model"
+                      <v-select type="text" label="Selecione o dia"
+                      v-model="treino.day"
                       :items="items"
                       
                       ></v-select>
@@ -109,16 +109,45 @@ export default {
   data() {
     return {
       treino: { 
-        student_id:"",
-        exercice_id: "",
-        repetitions:"",
-        weight:"",
-        break_time:"",
+        student_id:0,
+        exercise_id: 0,
+        repetitions:0,
+        weight:0,
+        break_time:0,
         observations:"",
-        day:""
+        day:"segunda"
       },
-      items: ["Segunda-feira", "Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira", "Sábado" ,"Domingo"],
-      model: "Domingo"
+      items: [
+        {
+        title:"Segunda-feira",
+        value: "segunda"
+        },
+        {
+        title:"Terça-feira",
+        value: "terca"
+        },
+        {
+        title:"Quarta-feira",
+        value: "quarta"
+        },
+        {
+        title:"Quinta-feira",
+        value: "quinta"
+        },
+        {
+        title:"Sexta-feira",
+        value: "sexta"
+        },
+        {
+        title:"Sábado",
+        value: "sabado"
+        },
+        {
+        title:"Domingo",
+        value: "domingo"
+        },
+
+      ]      
     }
   },
  methods: {
