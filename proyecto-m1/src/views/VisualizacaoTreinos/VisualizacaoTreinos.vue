@@ -10,7 +10,6 @@
       <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
           Treinos- 
-           
         </v-sheet>
       </v-col>
     </v-row>
@@ -81,12 +80,33 @@
       </v-form>
 
 
-      <v-form>
+      <v-form ref="form" @submit.prevent="handleSubmit" >
+        <v-table>
+            <thead>
+                <tr> 
+                  <th> 
+                    <v-btn color="orange" 
+                    class="mt-auto" 
+                    block 
+                    type="submit" >
+                    Hoje
+                    </v-btn>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>  
+                    <td>aqui el detalle de hoje</td>
+                    
+                </tr>            
+            </tbody>
+        </v-table>
+        
           <v-table>
             <thead>
                 <tr> 
                   <th> 
-                    Hoje
+                    Todos los ejercicios
                     </th>
                 </tr>
             </thead>
@@ -112,11 +132,39 @@ export default{
   data() {
     return {
       treinos : [],
-        
+      treinosUsuario:{
+        workout_id: "",
+        student_id:"",
+        day_of_week: ""
+      }      
     }
   },
+  
+
+  methods:{
+       async handleSubmit (){
+        const{valid} = await this.$refs.form.validate()
+
+        if(!valid){
+            alert("Marque um item")
+            return
+         }
+         try {
+          const result= await axios.post("http://localhost:3000/workouts/check",this.treinosUsuario)
+            if(result.status === 200){
+               localStorage.setItem("_info", JSON.stringify(result.data)) }              
+          
+         } catch (error) {          
+          alert(error.response.data.error)          
+         }
+       }
+       
+      },
+      
+
   mounted() {
         this.loadTreinos()
+        
     },
 
     methods: {
@@ -132,10 +180,8 @@ export default{
                 .catch(() => {
                     alert("Nao foi possivel recuperar os treinos")
                 })
-      }
-      
-    },
-
+      }      
+    }
 }
   
 </script>
