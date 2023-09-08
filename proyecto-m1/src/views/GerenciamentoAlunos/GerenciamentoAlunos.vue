@@ -5,7 +5,7 @@
             <v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
-                        <v-icon color="orange">mdi-cart</v-icon>
+                        <v-icon color="orange" size="large">mdi-account-multiple</v-icon>
                     </v-sheet>
                 </v-col>
 
@@ -55,13 +55,26 @@
                 <td>{{ Aluno.id }}</td>
                 <td>{{ Aluno.name }} </td>
                 <td>
-                    <v-btn color="orange" class="mt-2" block type="submit" to="/cadastro-treino">
-                        Montar treino
-                    </v-btn>
-                    <v-btn color="orange" class="mt-2" block type="submit" to="/gerenciamento-exercicios">
-                        Ver
-                    </v-btn>
+                    <v-container>
+                        <v-row>
+                            <v-col cols="12" md="3">
+                                <v-btn color="orange" class="mt-auto" block type="submit" to="/cadastro-treino">
+                                    Montar treino
+                                </v-btn>
+                            </v-col>
+
+                            <v-col cols="12" md="2">
+                                <v-btn color="orange" class="mt-auto" block type="submit" to="/gerenciamento-exercicios">
+                                    Ver
+                                </v-btn>
+
+                            </v-col>
+                        </v-row>
+                    </v-container>
                 </td>
+
+
+
             </tr>
 
         </tbody>
