@@ -8,18 +8,30 @@
 
       <div class="text-subtitle-1 text-medium-emphasis">Email</div>
 
-      <v-text-field density="compact" placeholder="Email" prepend-inner-icon="mdi-email-outline" variant="outlined"
-        v-model="usuario.email" :rules="[value => !!value || 'O email é obrigatorio']" type="email"></v-text-field>
+      <v-text-field 
+      density="compact" 
+      placeholder="Email" 
+      prepend-inner-icon="mdi-email-outline" 
+      variant="outlined"
+      v-model="usuario.email" 
+      :rules="[value => !!value || 'O email é obrigatorio']" 
+      type="email"></v-text-field>
 
       <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
         Senha
 
       </div>
 
-      <v-text-field :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'" :type="visible ? 'text' : 'password'"
-        density="compact" placeholder="Ingrese a senha" prepend-inner-icon="mdi-lock-outline" variant="outlined"
-        @click:append-inner="visible = !visible" v-model="usuario.password"
-        :rules="[value => !!value || 'A senha é obrigatoria']"></v-text-field>
+      <v-text-field 
+      :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'" 
+      :type="visible ? 'text' : 'password'"
+      density="compact" 
+      placeholder="Ingrese a senha" 
+      prepend-inner-icon="mdi-lock-outline" 
+      variant="outlined"
+      @click:append-inner="visible = !visible" 
+      v-model="usuario.password"
+      :rules="[value => !!value || 'A senha é obrigatoria']"></v-text-field>
 
       <v-card class="mb-12" color="surface-variant" variant="tonal">
 
@@ -30,8 +42,11 @@
       </v-btn>
 
       <v-card-text class="text-center">
-        <a class="text-blue text-decoration-none" href="/cadastro-usuario" rel="noopener noreferrer" target="_blank">
-          Ainda não tem conta? Cadrastre-se <v-icon icon="mdi-chevron-right"></v-icon>
+        <a class="text-blue text-decoration-none" 
+        href="/cadastro-usuario" 
+        rel="noopener noreferrer" 
+        target="_blank">
+        Ainda não tem conta? Cadrastre-se <v-icon icon="mdi-chevron-right"></v-icon>
         </a>
       </v-card-text>
     </v-card>
@@ -71,7 +86,7 @@ export default {
         }
 
       } catch (error) {
-        alert(error.response.data.error )
+        alert(error.response.data.error)
         this.$router.push("/cadastro-usuario")
         this.$refs.form.reset()
       }
