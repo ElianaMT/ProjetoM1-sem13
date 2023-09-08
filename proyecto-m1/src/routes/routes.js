@@ -49,7 +49,7 @@ const router = createRouter({
       component: CadastroTreino
     },
     {
-      path: '/visualizacao-treinos ',
+      path: '/visualizacao-treinos/:id',
       name: 'VisualizacaoTreinos ',
       component: VisualizacaoTreinos 
     }
