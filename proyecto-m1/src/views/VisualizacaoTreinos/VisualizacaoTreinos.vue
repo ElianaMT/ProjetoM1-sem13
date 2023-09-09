@@ -1,0 +1,194 @@
+<template>
+  <v-container>
+    <v-row no-gutters class="flex-wrap encabezado">
+      <v-col cols="1" class="flex-grow-0 flex-shrink-0">
+        <v-sheet class="ma-2 pa-4">
+          <v-icon color="orange">mdi-cart</v-icon>
+        </v-sheet>
+      </v-col>
+
+      <v-col cols="11" class="flex-grow-0 flex-shrink-0">
+        <v-sheet class="ma-2 pa-4">
+          Treinos- 
+        </v-sheet>
+      </v-col>
+    </v-row>
+    <br>
+
+
+    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
+
+      <v-form>
+
+        <v-table>
+        <thead>
+            <tr>
+                <th>
+                  <v-container>
+                        <v-row>
+                            <v-col cols="12" md="2">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Segunda
+                                </v-btn>
+                            </v-col>
+
+                            <v-col cols="12" md="1">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Terça
+                                </v-btn>
+                            </v-col>
+                            <v-col cols="12" md="1">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Quarta
+                                </v-btn>
+                            </v-col>
+
+                            <v-col cols="12" md="2">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Quinta
+                                </v-btn>
+                            </v-col>
+                            <v-col cols="12" md="2">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Sexta
+                                </v-btn>
+                            </v-col>
+                            <v-col cols="12" md="2">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Sábado
+                                </v-btn>
+                            </v-col>
+                            <v-col cols="12" md="2">
+                                <v-btn color="orange" class="mt-auto" block type="submit" >
+                                  Domingo
+                                </v-btn>
+                            </v-col>
+                        </v-row>
+                    </v-container>
+                </th>                                
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr >
+                <td>lista lorem20</td>  
+            </tr>
+
+        </tbody>
+    </v-table>  
+
+      </v-form>
+
+
+      <v-form ref="form" @submit.prevent="handleSubmit" >
+        <v-table>
+            <thead>
+                <tr> 
+                  <th> 
+                    <v-btn color="orange" 
+                    class="mt-auto" 
+                    block 
+                    type="submit" >
+                    Hoje
+                    </v-btn>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>  
+                    <td>aqui el detalle de hoje</td>
+                    
+                </tr>            
+            </tbody>
+        </v-table>
+        
+          <v-table>
+            <thead>
+                <tr> 
+                  <th> 
+                    Todos los ejercicios
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="treino in treinos" :key="treino.id">  
+                    <td>{{treino.id}}|{{treino.day }}|{{treino.exercise_id }}|{{treino.weight }}|{{treino.repetitions}}|{{treino.break_time }}</td>
+                    
+                </tr>            
+            </tbody>
+        </v-table>
+      </v-form>
+
+    </v-card>
+
+
+  </v-container>
+</template>
+
+<script>
+import axios from "axios"
+
+export default{ 
+  data() {
+    return {
+      treinos : [],
+      treinosUsuario:{
+        workout_id: "",
+        student_id:"",
+        day_of_week: ""
+      }      
+    }
+  },
+  
+
+  methods:{
+       async handleSubmit (){
+        const{valid} = await this.$refs.form.validate()
+
+        if(!valid){
+            alert("Marque um item")
+            return
+         }
+         try {
+          const result= await axios.post("http://localhost:3000/workouts/check",this.treinosUsuario)
+            if(result.status === 200){
+               localStorage.setItem("_info", JSON.stringify(result.data)) }              
+          
+         } catch (error) {          
+          alert(error.response.data.error)          
+         }
+       }
+       
+      },
+      
+
+  mounted() {
+        this.loadTreinos()
+        
+    },
+
+    methods: {
+      loadTreinos(){
+        axios({ 
+          url: "http://localhost:3000/workouts?student_id=:id",
+          method: "get"
+        })
+        .then((response) => {
+                    this.treinos = response.data.workouts
+                })
+
+                .catch(() => {
+                    alert("Nao foi possivel recuperar os treinos")
+                })
+      }      
+    }
+}
+  
+</script>
+
+<style>
+.encabezado {
+  border-bottom: solid;
+  border-color: orange;
+}
+</style>
