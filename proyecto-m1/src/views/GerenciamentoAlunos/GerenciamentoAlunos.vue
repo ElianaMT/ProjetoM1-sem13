@@ -112,7 +112,7 @@ export default {
 
         },
         redirect(id){
-            this.$router.push(`/gerenciamento-exercicios/${id}`)
+            this.$router.push(`/visualizacao-treinos/${id}`)
         }
         
     }
