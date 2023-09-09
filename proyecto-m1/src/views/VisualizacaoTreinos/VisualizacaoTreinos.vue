@@ -137,7 +137,7 @@ export default{
         student_id:"",
         day_of_week: ""
       },
-        
+      nomeUsuario: localStorage.getItem("aluno_name")     
     }
   },
   
