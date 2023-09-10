@@ -114,9 +114,7 @@ export default {
 
         },
         redirect(id) {
-            this.$router.push({path:`/visualizacao-treinos/${id}`,query:{
-                name:"name"
-            }})
+            this.$router.push(`/visualizacao-treinos/${id}`)
         }
 
     }
