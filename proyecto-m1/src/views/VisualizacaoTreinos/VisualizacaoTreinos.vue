@@ -9,7 +9,7 @@
 
       <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-          Treinos- {{this.$route.params.id}}
+          Treinos- {{nomeUsuario}}
         </v-sheet>
       </v-col>
     </v-row>
@@ -137,7 +137,7 @@ export default{
         student_id:"",
         day_of_week: ""
       },
-        
+      nomeUsuario: localStorage.getItem("aluno_name")     
     }
   },
   
