@@ -38,7 +38,7 @@
 
       </v-card>
 
-      <v-btn block class="mb-8" color="orange" size="large" variant="tonal" type="submit">
+      <v-btn block class="mb-8"  color="orange-darken-2" size="large"  type="submit">         
         Entrar   
       </v-btn>
 

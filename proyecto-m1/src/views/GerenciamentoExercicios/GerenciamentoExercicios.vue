@@ -24,7 +24,7 @@
     </v-col>
 
     <v-col cols="12" md="2">
-        <v-btn color="orange" class="mt-2" block type="submit">
+        <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit">
             Cadastrar
         </v-btn>
 

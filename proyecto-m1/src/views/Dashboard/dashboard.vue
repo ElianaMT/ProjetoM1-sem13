@@ -1,5 +1,5 @@
 
-
+<template>
     <div class="container">
 
         <v-card class="mx-auto" width="500">
@@ -10,15 +10,16 @@
 
 
             <v-card-actions>
-                <v-btn variant="outlined" color="orange" to="/gerenciamento-alunos">
+                <v-btn variant="outlined" color="orange-accent-3" size="large" to="/gerenciamento-alunos">
                     Adicionar
                 </v-btn>
+               
             </v-card-actions>
 
 
         </v-card>
 
-        <v-card class="mx-auto" width="500"  to="/gerenciamento-exercicios">
+        <v-card class="mx-auto" width="500" to="/gerenciamento-exercicios">
 
             <template v-slot:title>
                 <v-icon color="orange" size="large">mdi-arm-flex</v-icon> 
@@ -26,7 +27,7 @@
             </template>
 
             <v-card-actions>
-                <v-btn variant="outlined" color="orange">
+                <v-btn variant="outlined" color="orange-accent-3" size="large" to="/gerenciamento-exercicios">
                     Adicionar
                 </v-btn>
             </v-card-actions>

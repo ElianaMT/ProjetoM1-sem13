@@ -1,14 +1,14 @@
 <template>
-    {{usuario }}
+    
            <v-card
-       class="mx-auto pa-12 pb-8"
+       class="mx-auto mt-50 pa-12 pb-8 pt-2"
        elevation="8"
        max-width="448"
        rounded="lg"
      >
-     <div class="title">
+     <div class="pa-8" >
       <h1>Crie sua conta</h1>
-   </div>
+     </div>
      
 
          <v-form ref="form" @submit.prevent="handleSubmit" >
@@ -61,9 +61,10 @@
       <div class="d-flex flex-column">
 
            <v-btn
-           color="orange"
-           class="mt-4"
-           block
+           color="orange-darken-2" 
+           size="large" 
+           class="mt-2" 
+           block 
            type="submit"
          >
            Cadastrar
@@ -71,9 +72,10 @@
 
          <v-btn
            to="/"
-           color="orange"
-           class="mt-4"
-           block
+           color="orange-accent-1" 
+           size="large" 
+           class="mt-2" 
+           block 
            >
            Voltar
          </v-btn>     
@@ -148,9 +150,5 @@ export default {
 
 
 <style>
-.title{ 
-   padding-bottom: 25px;
-   color:orange
-  
-}
+
 </style>

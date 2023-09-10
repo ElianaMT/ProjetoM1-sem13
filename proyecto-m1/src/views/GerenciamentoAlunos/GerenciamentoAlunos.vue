@@ -17,7 +17,7 @@
 
                 <v-col cols="2" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-2">
-                        <v-btn color="orange" class="m-2" block type="submit" to="/cadastro-novo-aluno">
+                        <v-btn color="orange-darken-2" size="large" class="m-2" block type="submit" to="/cadastro-novo-aluno">
                             Novo
                         </v-btn>
                     </v-sheet>
@@ -32,7 +32,7 @@
                 </v-col>
 
                 <v-col cols="12" md="2">
-                    <v-btn color="orange" class="mt-2" block type="submit">
+                    <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit">
                         Buscar
                     </v-btn>
 
@@ -58,13 +58,13 @@
                     <v-container>
                         <v-row>
                             <v-col cols="12" md="3">
-                                <v-btn color="orange" class="mt-auto" block type="submit" to="/cadastro-treino">
+                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" to="/cadastro-treino">
                                     Montar treino
                                 </v-btn>
                             </v-col>
 
                             <v-col cols="12" md="2">
-                                <v-btn color="orange" class="mt-auto" block type="submit" @click="()=>redirect(Aluno.id)">
+                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" @click="()=>redirect(Aluno.id)">
                                     Ver
                                 </v-btn>
 
