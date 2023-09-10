@@ -5,8 +5,9 @@
 
     <div class="container">
 
-        <v-card class="mx-auto" width="500" prepend-icon="mdi-home">
-            <template v-slot:title>
+        <v-card class="mx-auto" width="500">
+                       
+            <template v-slot:title>  <v-icon color="orange" size="large">mdi-account-multiple</v-icon> 
                 {{dashboardInfo.amount_students }} Alunos
             </template>
 
@@ -20,8 +21,10 @@
 
         </v-card>
 
-        <v-card class="mx-auto" width="500" prepend-icon="mdi-home" to="/gerenciamento-exercicios">
+        <v-card class="mx-auto" width="500"  to="/gerenciamento-exercicios">
+
             <template v-slot:title>
+                <v-icon color="orange" size="large">mdi-arm-flex</v-icon> 
                 {{dashboardInfo.amount_exercises}} Exercicios
             </template>
 
