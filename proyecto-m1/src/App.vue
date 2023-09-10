@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-app-bar color="orange" v-if="renderizarMenu">
+    <v-app-bar color="orange-accent-2" v-if="renderizarMenu">
       <v-app-bar-title class="titleMenu">Lab Treinos</v-app-bar-title>
      
       <v-btn size="small" to="/dashboard">        
