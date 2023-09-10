@@ -58,7 +58,7 @@
                     <v-container>
                         <v-row>
                             <v-col cols="12" md="3">
-                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" to="/cadastro-treino">
+                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" @click="()=>redirectTreino(Aluno.id)">
                                     Montar treino
                                 </v-btn>
                             </v-col>
@@ -114,9 +114,12 @@ export default {
         },
         redirect(id){
             this.$router.push(`/visualizacao-treinos/${id}`)
-        }
+        },
+        redirectTreino(id){
+            this.$router.push(`/cadastro-treino/${id}`)
         
     }
+}
 }
 
 </script>
