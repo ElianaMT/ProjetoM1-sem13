@@ -1,6 +1,13 @@
 {
   "dependencies": {
 
+    "@mdi/js": "^7.2.96",
+    "axios": "^1.5.0",
+    "vee-validate": "^4.11.3",
+    "vuetify": "^3.3.6",
+    "yup": "^1.2.0"
+
+
     "vuetify": "^3.3.6"
 
 
@@ -8,6 +15,7 @@
     "vuetify": "^3.3.6"
 
     "axios": "^1.5.0"
+
 
 
   }
