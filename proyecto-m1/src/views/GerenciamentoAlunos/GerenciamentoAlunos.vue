@@ -73,6 +73,8 @@
                     </v-container>
                 </td>
 
+
+
             </tr>
 
         </tbody>
@@ -102,11 +104,6 @@ export default {
             })
                 .then((response) => {
                     this.Alunos = response.data.students
-                    if (response.status === 200) {                    
-                    localStorage.setItem("aluno_name", JSON.stringify(this.Alunos.Aluno.id))
-                     
-        }
-                    
                 })
 
                 .catch(() => {
