@@ -33,6 +33,8 @@
 </v-container>
 
     </v-form>
+    
+    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
 
     <v-table>
         <thead>
@@ -49,6 +51,7 @@
             
         </tbody>
     </v-table>
+</v-card>
 
 </template>
 

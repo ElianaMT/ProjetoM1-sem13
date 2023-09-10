@@ -25,7 +25,7 @@
 
             </v-row>
 
-
+            
             <v-row>
                 <v-col cols="12" md="10">
                     <v-text-field type="text" label="Digite o nome do exercício"></v-text-field>
@@ -41,7 +41,7 @@
         </v-container>
     </v-form>
 
-
+    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
     <v-table>
         <thead>
             <tr>
@@ -79,6 +79,7 @@
 
         </tbody>
     </v-table>
+</v-card>
 </template>
 
  
