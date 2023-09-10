@@ -1,7 +1,4 @@
-<template>
-    <div class="title">
-        <h1>Bem-vindo, {{userInfo.name}} </h1>        
-    </div>
+
 
     <div class="container">
 
@@ -71,3 +68,4 @@ export default{
     gap: 40px;
 }
 </style>
+
