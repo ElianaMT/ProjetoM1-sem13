@@ -64,7 +64,7 @@
                             </v-col>
 
                             <v-col cols="12" md="2">
-                                <v-btn color="orange" class="mt-auto" block type="submit" @click="() => redirect(Aluno.id)">
+                                <v-btn color="orange" class="mt-auto" block type="submit" @click="()=>redirect(Aluno.id)">
                                     Ver
                                 </v-btn>
 
@@ -102,10 +102,11 @@ export default {
             })
                 .then((response) => {
                     this.Alunos = response.data.students
-                    if (response.status === 200) {
-                        localStorage.setItem("aluno_name", JSON.stringify(this.Alunos))
-                    }
-
+                    if (response.status === 200) {                    
+                    localStorage.setItem("aluno_name", JSON.stringify(this.Alunos.Aluno.id))
+                     
+        }
+                    
                 })
 
                 .catch(() => {
@@ -113,10 +114,10 @@ export default {
                 })
 
         },
-        redirect(id) {
+        redirect(id){
             this.$router.push(`/visualizacao-treinos/${id}`)
         }
-
+        
     }
 }
 
