@@ -160,6 +160,7 @@ export default {
         const result = await axios.post("http://localhost:3000/workouts", this.treino)
         if (result.status === 201) {
           localStorage.setItem("treino-info", JSON.stringify(result.data))
+          alert("Cadastro de treino com sucesso")
 
         }
       } catch (error) {
