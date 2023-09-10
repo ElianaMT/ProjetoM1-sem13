@@ -1,5 +1,7 @@
 
 <template>
+    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
+        <h1>Bem-vindo, {{userInfo.name }}</h1>
     <div class="container">
 
         <v-card class="mx-auto" width="500">
@@ -34,6 +36,7 @@
 
         </v-card>
     </div>
+</v-card>
 </template>
 
 <script>
