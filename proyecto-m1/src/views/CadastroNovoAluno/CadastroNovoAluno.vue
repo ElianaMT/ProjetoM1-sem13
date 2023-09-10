@@ -1,4 +1,5 @@
 <template>
+
     <v-container>
         <v-row no-gutters class="flex-wrap encabezado">
             <v-col cols="1" class="flex-grow-0 flex-shrink-0">
@@ -210,3 +211,9 @@ export default {
 
 }
 </style>
+
+    <div>
+        
+    </div>
+</template>
+
