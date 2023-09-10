@@ -9,7 +9,7 @@
 
       <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-          Treinos- 
+          Treinos-  {{this.$route.params.id }}
         </v-sheet>
       </v-col>
     </v-row>
@@ -102,6 +102,8 @@
             </tbody>
         </v-table>
         
+       
+
           <v-table>
             <thead>
                 <tr> 
@@ -161,27 +163,12 @@ export default{
        
       },
       
-
-  mounted() {
-        this.loadTreinos()
+      mounted() {
         
-    },
+      },
+      
 
-    methods: {
-      loadTreinos(){
-        axios({ 
-          url: "http://localhost:3000/workouts?student_id=:id",
-          method: "get"
-        })
-        .then((response) => {
-                    this.treinos = response.data.workouts
-                })
-
-                .catch(() => {
-                    alert("Nao foi possivel recuperar os treinos")
-                })
-      }      
-    }
+  
 }
   
 </script>
