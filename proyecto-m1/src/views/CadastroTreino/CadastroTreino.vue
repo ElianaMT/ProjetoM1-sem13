@@ -110,7 +110,7 @@ export default {
   data() {
     return {
       treino: { 
-        student_id:0,
+        student_id:this.$route.params.id,
         exercise_id: 0,
         repetitions:0,
         weight:0,
@@ -207,9 +207,7 @@ export default {
     axios.get("http://localhost:3000/students")
     .then(res => this.estudiantesLista = res.data)
 
-    // Para la lista de los entrenamientos-ojo verificar si funciona
-    axios.get("http://localhost:3000/workouts")
-    .then(res => this.workoutsLista = res.data)
+    
   },
 
  
