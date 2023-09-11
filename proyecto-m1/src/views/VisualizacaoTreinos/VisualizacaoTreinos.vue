@@ -169,8 +169,8 @@ export default{
 
       //probando el envio desde cadastro de treinos   
        mounted() {  
-        axios.get("http://localhost:3000/workouts?student_id=:id")
-        .then(res => this.treinoLista = res.data)
+        axios.get(`http://localhost:3000/workouts?student_id=${this.$route.params.id}`)
+        .then(res => this.treinoLista = res.data.workouts)
        },
 }
   
