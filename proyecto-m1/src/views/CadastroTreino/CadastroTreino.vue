@@ -9,7 +9,7 @@
 
           <v-col cols="11" class="flex-grow-0 flex-shrink-0">
               <v-sheet class="ma-2 pa-4">
-                  Treino
+                  Treino- {{this.$route.params.id }} 
               </v-sheet>
           </v-col>
       </v-row>
@@ -81,7 +81,7 @@
 
               <v-row class="d-flex flex-row-reverse">
                   <v-col cols="12" md="2">
-                      <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit">
+                      <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit" >
                           Cadastrar
                       </v-btn>
                   </v-col>
@@ -146,7 +146,10 @@ export default {
         }
       ] ,
 
-      exerciciosLista:[] 
+      exerciciosLista:[],
+      estudiantesLista:[],
+      workoutsLista:[]
+
     }
   },
  methods: {
@@ -169,11 +172,23 @@ export default {
       }
 
     }
+  
   },
+  //Para el select
   mounted() {
     axios.get("http://localhost:3000/exercises")
-    .then(res => this.exerciciosLista = res.data)
+    .then(res => this.exerciciosLista = res.data),
+
+    // Para el nombre del estudiante
+    axios.get("http://localhost:3000/students")
+    .then(res => this.estudiantesLista = res.data)
+
+    // Para la lista de los entrenamientos-ojo verificar si funciona
+    axios.get("http://localhost:3000/workouts")
+    .then(res => this.workoutsLista = res.data)
   },
+
+ 
 }
 
 </script>

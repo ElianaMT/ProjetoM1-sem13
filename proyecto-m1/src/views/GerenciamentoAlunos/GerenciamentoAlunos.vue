@@ -58,7 +58,7 @@
                     <v-container>
                         <v-row>
                             <v-col cols="12" md="3">
-                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" @click="()=>redirectTreino(Aluno.id)">
+                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" @click="()=>redirectTreino(Aluno.name)">
                                     Montar treino
                                 </v-btn>
                             </v-col>
