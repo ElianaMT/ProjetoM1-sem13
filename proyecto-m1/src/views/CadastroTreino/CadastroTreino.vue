@@ -90,7 +90,7 @@
                   </v-col>
 
                   <v-col cols="12" md="2">
-                      <v-btn color="orange-accent-2" size="large" class="mt-2" block type="submit">
+                      <v-btn color="orange-accent-2" size="large" class="mt-2" block type="submit" to="/gerenciamento-alunos">
                           Cancelar
                       </v-btn>
                   </v-col>
