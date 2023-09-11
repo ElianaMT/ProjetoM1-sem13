@@ -115,15 +115,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="treino in treinos" :key="treino.id">  
+                <tr v-for="treino in treinoLista" :key="treino.id">  
                     <td>{{treino.id}}|{{treino.day }}|{{treino.exercise_id }}|{{treino.weight }}|{{treino.repetitions}}|{{treino.break_time }}</td>
                     
                 </tr>   
-                <tr>
-                  <v-select>
-
-                  </v-select>
-                </tr>         
+                        
             </tbody>
         </v-table>
       </v-form>
@@ -139,15 +135,14 @@ import axios from "axios"
 
 export default{ 
   data() {
-    return {
-      treinos : [],
+    return {      
       treinosUsuario:{
         workout_id: "",
         student_id:"",
         day_of_week: ""
       },   
       
-      ejerciciosLista:[] 
+      treinoLista:[] 
     }
   },
   
@@ -175,7 +170,7 @@ export default{
       //probando el envio desde cadastro de treinos   
        mounted() {  
         axios.get("http://localhost:3000/workouts?student_id=:id")
-        .then(res => this.ejerciciosLista = res.data)
+        .then(res => this.treinoLista = res.data)
        },
 }
   
