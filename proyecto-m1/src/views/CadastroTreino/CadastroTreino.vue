@@ -75,7 +75,10 @@
 
               <v-row>
 
-                  <v-textarea label="Observações para esse treino"></v-textarea>
+                  <v-textarea 
+                  label="Observações para esse treino"
+                  v-model="treino.observations"
+                  ></v-textarea>
 
               </v-row>
 
