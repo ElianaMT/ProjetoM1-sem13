@@ -206,14 +206,4 @@ export default {
     border-color: orange;
 }
 
-.box-1 {
-    border-bottom: solid;
-    border-color: orange;
-
-}
 </style>
-
-   
-
-
-
