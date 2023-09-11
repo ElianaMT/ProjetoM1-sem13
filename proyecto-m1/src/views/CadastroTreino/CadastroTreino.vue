@@ -54,7 +54,7 @@
                   </v-col>
 
                   <v-col cols="12" md="4">
-                      <v-text-field type="time" label="Pausa"
+                      <v-text-field type="number" label="Pausa"
                       v-model="treino.break_time"
                       :rules="[value => !!value || 'A pausa é obrigatoria'
                       ]" 
