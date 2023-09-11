@@ -113,7 +113,7 @@ export default {
         weight:0,
         break_time:"",
         observations:"",
-        day:"segunda"
+        day: this.getCurrentDay(new Date().getDay())
       },
       items: [
         {
@@ -153,6 +153,20 @@ export default {
     }
   },
  methods: {
+  getCurrentDay(value){
+    const days= [
+      {value: "segunda", number:1},
+      {value: "terca", number:2},
+      {value: "quarta", number:3},
+      {value: "quinta", number:4},
+      {value: "sexta", number:5},
+      {value: "sabado", number:6},
+      {value: "domingo", number:0}     
+    ]
+    const option = days.find(item => item.number === value)
+    return option.value
+  },
+
     async handleSubmit() {
       const { valid } = await this.$refs.form.validate()
       if (!valid) {
