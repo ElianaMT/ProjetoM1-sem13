@@ -9,7 +9,7 @@
 
       <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-          Treinos-  {{this.$route.params.id }}
+          Treinos-  {{this.$route.params.id}}
         </v-sheet>
       </v-col>
     </v-row>
@@ -101,14 +101,16 @@
                 </tr>            
             </tbody>
         </v-table>
-        
-       
-
           <v-table>
             <thead>
                 <tr> 
                   <th> 
                     Todos los ejercicios
+                    {{this.$route.params.id }} 
+                    {{this.$route.params.weight}} 
+                    {{this.$route.params.repetitions}} 
+                    
+                    
                     </th>
                 </tr>
             </thead>
@@ -116,7 +118,12 @@
                 <tr v-for="treino in treinos" :key="treino.id">  
                     <td>{{treino.id}}|{{treino.day }}|{{treino.exercise_id }}|{{treino.weight }}|{{treino.repetitions}}|{{treino.break_time }}</td>
                     
-                </tr>            
+                </tr>   
+                <tr>
+                  <v-select>
+
+                  </v-select>
+                </tr>         
             </tbody>
         </v-table>
       </v-form>
@@ -138,7 +145,9 @@ export default{
         workout_id: "",
         student_id:"",
         day_of_week: ""
-      }      
+      },   
+      
+      ejerciciosLista:[] 
     }
   },
   
@@ -161,14 +170,13 @@ export default{
          }
        }
        
-      },
-      
-      mounted() {
-        
-      },
-      
+      },  
 
-  
+      //probando el envio desde cadastro de treinos   
+       mounted() {  
+        axios.get("http://localhost:3000/workouts?student_id=:id")
+        .then(res => this.ejerciciosLista = res.data)
+       },
 }
   
 </script>

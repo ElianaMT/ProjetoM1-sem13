@@ -81,7 +81,7 @@
 
               <v-row class="d-flex flex-row-reverse">
                   <v-col cols="12" md="2">
-                      <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit" >
+                      <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit" @click="()=>redirectEjercicios(this.treino)" >
                           Cadastrar
                       </v-btn>
                   </v-col>
@@ -174,6 +174,13 @@ export default {
     }
   
   },
+
+  // redirecciona a visualizacion
+  redirectEjercicios(id){
+            this.$router.push(`/visualizacao-treinos/${id}`)
+        },
+
+
   //Para el select
   mounted() {
     axios.get("http://localhost:3000/exercises")
