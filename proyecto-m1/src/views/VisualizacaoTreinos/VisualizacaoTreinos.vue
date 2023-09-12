@@ -107,23 +107,36 @@
                   <th> 
                     Todos los ejercicios
                     {{this.$route.params.id }} 
-                    {{this.$route.params.weight}} 
-                    {{this.$route.params.repetitions}} 
-                    
+                                       
                     
                     </th>
                 </tr>
             </thead>
+           
             <tbody>
-                <tr v-for="treino in treinoLista" :key="treino.id">  
-                    <td>{{treino.id}} </td>
-                    <td> {{treino.day }} </td>
+              datos segunda
+              <tr v-for="treino in dadosSegunda" :key="treino.id">               
+                    <td> {{treino.exercise_description}} </td>
+                    <td> {{treino.weight }} KG </td>
+                    <td> {{treino.repetitions}} repetições </td>
+                    <td> {{treino.break_time }} min de pausa</td> 
+                </tr>  
+
+                datos terca
+                <tr v-for="treino in dadosTerca" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> {{treino.weight }} KG </td>
                     <td> {{treino.repetitions}} repetições </td>
                     <td> {{treino.break_time }} min de pausa</td>
-                    
                 </tr>   
+
+                datos quarta
+                <tr v-for="treino in dadosQuarta" :key="treino.id">                     
+                    <td> {{treino.exercise_description}} </td>
+                    <td> {{treino.weight }} KG </td>
+                    <td> {{treino.repetitions}} repetições </td>
+                    <td> {{treino.break_time }} min de pausa</td>
+                </tr>  
                         
             </tbody>
         </v-table>
@@ -147,7 +160,8 @@ export default{
         day_of_week: ""
       },   
       
-      treinoLista:[] 
+      treinoLista:[]
+      
     }
   },
   
@@ -171,13 +185,35 @@ export default{
        }
        
       },  
+      // Genera um dado novo(dias) a partir de outro(treino)
+      computed:{
+        dadosSegunda(){
+          return this.treinoLista.filter(item => item.day === "segunda")
+        },
+        dadosTerca(){
+          return this.treinoLista.filter(item => item.day === "terca")
+        },
+        dadosQuarta(){
+          return this.treinoLista.filter(item => item.day === "quarta")
+        },
 
-      //probando el envio desde cadastro de treinos   
+
+
+      },      
+
+      //Recibe info. desde cadastro do treinos   
        mounted() {  
-        axios.get(`http://localhost:3000/workouts?student_id=${this.$route.params.id}`)
-        .then(res => this.treinoLista = res.data.workouts)
-       },
-}
+        axios({ 
+        url: `http://localhost:3000/workouts?student_id=${this.$route.params.id}`,
+        method: "GET"
+      })
+      // Todos os dados do treinos
+        .then((response) => {
+        this.treinoLista = response.data.workouts
+
+       })
+      }
+    }
   
 </script>
 
