@@ -116,7 +116,12 @@
             </thead>
             <tbody>
                 <tr v-for="treino in treinoLista" :key="treino.id">  
-                    <td>{{treino.id}}|{{treino.day }}|{{treino.exercise_id }}|{{treino.weight }}|{{treino.repetitions}}|{{treino.break_time }}</td>
+                    <td>{{treino.id}} </td>
+                    <td> {{treino.day }} </td>
+                    <td> {{treino.exercise_description}} </td>
+                    <td> {{treino.weight }} KG </td>
+                    <td> {{treino.repetitions}} repetições </td>
+                    <td> {{treino.break_time }} min de pausa</td>
                     
                 </tr>   
                         
