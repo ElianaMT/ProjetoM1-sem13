@@ -172,7 +172,7 @@ export default {
 
         async fazerRequisicao() {
             try {
-                const response = await fetch("https://viacep.com.br/ws/01001000/json/")
+                const response = await fetch(`https://viacep.com.br/ws/${this.alunoNovo.cep}/json/`)
                 const data = await response.json()
                 this.alunoNovo.street = data.logradouro
                 this.alunoNovo.number = data.siafi
