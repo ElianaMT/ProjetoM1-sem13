@@ -157,13 +157,12 @@ import moment from "moment"
 
 export default {
     data() {
-        return {
-            data: moment(new Date()).format("DD/MM/YYYY"),
+        return {            
             alunoNovo: {
                 name: "",
                 email: "",
                 contact: "",
-                date_birth: "",
+                date_birth: (new Date()),
                 cep: "",
                 street: "",
                 number: "",
@@ -183,7 +182,7 @@ export default {
         // Format Datepicker
         format(date){
             const day = date.getDate();
-            const month = date.getMonth();
+            const month = date.getMonth()+1;
             const year = date.getFullYear();
 
             return `${day}/${month}/${year} `;
