@@ -32,10 +32,11 @@
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field 
-                        type="email" 
-                        label="Email" 
-                        v-model="alunoNovo.email">
+                       
+                        <v-text-field
+                        v-model="alunoNovo.email"
+                        type="text"
+                        label="E-mail">   
                     </v-text-field>
                     </v-col>
                 </v-row>
@@ -51,11 +52,16 @@
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field 
-                        type="date" 
-                        label="Data de nascimiento" 
-                        v-model="alunoNovo.date_birth">
-                    </v-text-field>
+                        <VueDatePicker
+                        placeholder="Data de nascimento"
+                        v-model="alunoNovo.date_birth"
+                        :max-date="new Date()"
+                        locale="pt-BR"
+                        cancelText="Cancelar"
+                        selectText="Selecionar"
+                        :format="format"
+                        :enable-time-picker="false"
+                        />
                     </v-col>
                 </v-row>
 
@@ -141,10 +147,12 @@
             </v-form>
         </v-card>
     </v-container>
+    
 </template>
 
 <script>
 import axios from "axios"
+
 
 export default {
     data() {
@@ -166,7 +174,17 @@ export default {
         }
     },
 
+ 
     methods: {
+
+        // Format Datepicker
+        format(date){
+            const day = date.getDate();
+            const month = date.getMonth();
+            const year = date.getFullYear();
+
+            return `${day}/${month}/${year} `;
+        },
 
         // Requisicao de dados da api CEP, com fetch
 
@@ -200,8 +218,7 @@ export default {
                 const result = await axios.post("http://localhost:3000/students", this.alunoNovo)
 
                 if (result.status === 200) {
-                    localStorage.setItem("novoAluno_info", JSON.stringify(result.data))
-                    
+                    localStorage.setItem("novoAluno_info", JSON.stringify(result.data))                    
                 }
 
             } catch (error) {
