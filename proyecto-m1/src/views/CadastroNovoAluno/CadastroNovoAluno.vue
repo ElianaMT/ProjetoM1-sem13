@@ -52,6 +52,7 @@
                     </v-col>
 
                     <v-col cols="12" md="6">
+                        {{data }}
                         <VueDatePicker
                         placeholder="Data de nascimento"
                         v-model="alunoNovo.date_birth"
@@ -152,11 +153,12 @@
 
 <script>
 import axios from "axios"
-
+import moment from "moment"
 
 export default {
     data() {
         return {
+            data: moment(new Date()).format("DD/MM/YYYY"),
             alunoNovo: {
                 name: "",
                 email: "",
@@ -173,6 +175,7 @@ export default {
             novoAlunoInfo: []
         }
     },
+   
 
  
     methods: {
@@ -214,6 +217,7 @@ export default {
                 return
             }
 
+          
             try {
                 const result = await axios.post("http://localhost:3000/students", this.alunoNovo)
 
@@ -223,7 +227,10 @@ export default {
 
             } catch (error) {
                 alert("Falha ao concluir cadastro de alunno")
-            }
+            } 
+            
+            let dataFormatada = moment(this.data).format("DD/MM/YYYY")
+            
             const result = confirm ("Aluno cadastrado com sucesso")
             this.$refs.form.reset()
         }
