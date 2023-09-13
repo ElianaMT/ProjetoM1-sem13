@@ -201,13 +201,14 @@ export default {
 
                 if (result.status === 200) {
                     localStorage.setItem("novoAluno_info", JSON.stringify(result.data))
-                    alert("Aluno cadastrado con sucesso!")
-                    this.$refs.form.reset()
+                    
                 }
 
             } catch (error) {
                 alert("Falha ao concluir cadastro de alunno")
             }
+            const result = confirm ("Aluno cadastrado com sucesso")
+            this.$refs.form.reset()
         }
     },
 
