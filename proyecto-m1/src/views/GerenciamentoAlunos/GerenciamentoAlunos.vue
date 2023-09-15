@@ -1,5 +1,5 @@
 <template>
-    <v-form>
+    <v-form @submit.prevent="filtrarNome">
         <v-container>
 
             <v-row no-gutters class="flex-wrap encabezado">
@@ -28,19 +28,18 @@
 
 
             <v-row>
-                <v-col cols="12" md="10">
-                    <b-form inline>
-                        <b-form-input
-                        class="mr-3"
-                        placeholder="Nome"                        
-                        ></b-form-input>
+                <v-col cols="12" md="10">    
 
-                    </b-form>
-
+                    <v-text-field 
+                    v-model="search"
+                    type="text" 
+                    label="Digite o nome">                    
+                    </v-text-field>
                 </v-col>
 
                 <v-col cols="12" md="2">
-                    <v-btn                     
+                    <v-btn 
+                                      
                     color="orange-darken-2" 
                     size="large" class="mt-2" 
                     block 
@@ -107,21 +106,24 @@
 import axios from "axios"
 
 export default {
+
     data() {
         return {
-            
-            Alunos: []
+            // Guarda todos os dados do alunos
+            Alunos: [],
         }
-
     },
-
+    // Trae o listagem do alunos
     mounted() {
         this.loadAlunos()
     },
 
-  
-
     methods: {
+
+        //Filter
+        filtrarNome() { },
+        
+        // Trae o listagem do alunos
         loadAlunos() {
             axios({
                 url: "http://localhost:3000/students",
@@ -136,9 +138,13 @@ export default {
                 })
 
         },
+
+        // Redirecciona id a visualizacao-treinos
         redirect(id) {
             this.$router.push(`/visualizacao-treinos/${id}`)
         },
+
+        // Redirecciona id a cadastro-treino
         redirectTreino(id) {
             this.$router.push(`/cadastro-treino/${id}`)
 
