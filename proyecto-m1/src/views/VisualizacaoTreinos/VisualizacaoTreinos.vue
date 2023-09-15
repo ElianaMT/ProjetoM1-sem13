@@ -21,6 +21,40 @@
 
 
 
+<v-form ref="form" @submit.prevent="handleSubmit" >
+  
+      <v-container fluid>
+        <h1>Hoje</h1>
+    <p>{{ selected }}</p>
+
+    
+    <table>
+          <tr v-for="treino in dadosSegunda" :key="treino.id"> 
+            
+            <td> <v-checkbox></v-checkbox> </td>
+                  
+              
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>
+        
+          </tr> 
+    </table>          
+
+   
+
+    <v-checkbox
+      v-model="selected"
+      label="Jacob"
+      value="Jacob"
+    ></v-checkbox>
+
+  </v-container>
+</v-form>
+
+
+      
       <v-card>
     <v-toolbar
       color="orange-darken-2"
@@ -193,44 +227,11 @@
              </v-table>
             </v-card-text>
           </v-card>
-        </v-window-item>
-        
-
+        </v-window-item>   
 
       </v-window>
     
   </v-card>
-
-
-
-  
-
-
-      <v-form ref="form" @submit.prevent="handleSubmit" >
-       
-          <v-table>
-            <thead>
-                <tr> 
-                  <th> 
-                    dados domingo
-                    {{this.$route.params.id }}                                        
-                    
-                    </th>
-                </tr>
-            </thead>
-           
-            <tbody>              
-              <tr v-for="treino in dadosDomingo" :key="treino.id">               
-                    <td> {{treino.exercise_description}} </td>
-                    <td> {{treino.weight }} KG </td>
-                    <td> {{treino.repetitions}} repetições </td>
-                    <td> {{treino.break_time }} min de pausa</td> 
-                </tr>  
-
-                                       
-            </tbody>
-        </v-table>
-      </v-form>
 
     </v-card>
 
@@ -244,7 +245,8 @@ import axios from "axios"
 export default{ 
   data() {
     return { 
-      
+     
+      //Options dia semana      
       tab: 'option-1',   
 
       treinosUsuario:{
@@ -253,7 +255,8 @@ export default{
         day_of_week: ""
         
       },   
-      
+
+      // Guarda todos os dados de treinos      
       treinoLista:[]
       
     }
