@@ -2,7 +2,7 @@
     <v-form>
         <v-container>
 
-            <v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
+            <v-row no-gutters class="flex-wrap encabezado">
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
                         <v-icon color="orange" size="large">mdi-account-multiple</v-icon>
@@ -17,7 +17,8 @@
 
                 <v-col cols="2" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-2">
-                        <v-btn color="orange-darken-2" size="large" class="m-2" block type="submit" to="/cadastro-novo-aluno">
+                        <v-btn color="orange-darken-2" size="large" class="m-2" block type="submit"
+                            to="/cadastro-novo-aluno">
                             Novo
                         </v-btn>
                     </v-sheet>
@@ -25,14 +26,25 @@
 
             </v-row>
 
-            
+
             <v-row>
                 <v-col cols="12" md="10">
-                    <v-text-field type="text" label="Digite o nome do exercício"></v-text-field>
+                    <b-form inline>
+                        <b-form-input
+                        class="mr-3"
+                        placeholder="Nome"                        
+                        ></b-form-input>
+
+                    </b-form>
+
                 </v-col>
 
                 <v-col cols="12" md="2">
-                    <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit">
+                    <v-btn                     
+                    color="orange-darken-2" 
+                    size="large" class="mt-2" 
+                    block 
+                    type="submit">
                         Buscar
                     </v-btn>
 
@@ -42,44 +54,52 @@
     </v-form>
 
     <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
-    <v-table>
-        <thead>
-            <tr>
-                <th>Nº</th>
-                <th>Nome do Aluno</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="Aluno in Alunos" :key="Aluno.id">
-                <td>{{ Aluno.id }}</td>
-                <td>{{ Aluno.name }} </td>
-                <td>
-                    <v-container>
-                        <v-row>
-                            <v-col  cols="12" md="3">
-                                <v-btn  color="orange-accent-1" class="mt-auto" block type="submit" @click="()=>redirectTreino(Aluno.id)">
+        <v-table>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>Nome do Aluno</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="Aluno in Alunos" :key="Aluno.id">
+                    <td>{{ Aluno.id }}</td>
+                    <td>{{ Aluno.name }} </td>
+                    <td>
+                        <v-container>
+                            <v-row>
+                                <v-col cols="12" md="3">
+                                    <v-btn 
+                                    color="orange-accent-1" 
+                                    class="mt-auto" 
+                                    block 
+                                    type="submit"
+                                    @click="() => redirectTreino(Aluno.id)">
                                     Montar treino
-                                </v-btn>
-                            </v-col>
+                                    </v-btn>
+                                </v-col>
 
-                            <v-col cols="12" md="2">
-                                <v-btn color="orange-accent-1" class="mt-auto" block type="submit" @click="()=>redirect(Aluno.id)">
-                                    Ver
-                                </v-btn>
+                                <v-col cols="12" md="2">
+                                    <v-btn 
+                                    color="orange-accent-1" 
+                                    class="mt-auto" 
+                                    block 
+                                    type="submit"
+                                    @click="() => redirect(Aluno.id)">
+                                        Ver
+                                    </v-btn>
 
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                </td>
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                    </td>
 
+                </tr>
 
-
-            </tr>
-
-        </tbody>
-    </v-table>
-</v-card>
+            </tbody>
+        </v-table>
+    </v-card>
 </template>
 
  
@@ -89,13 +109,17 @@ import axios from "axios"
 export default {
     data() {
         return {
+            
             Alunos: []
         }
+
     },
 
     mounted() {
         this.loadAlunos()
     },
+
+  
 
     methods: {
         loadAlunos() {
@@ -112,14 +136,14 @@ export default {
                 })
 
         },
-        redirect(id){
+        redirect(id) {
             this.$router.push(`/visualizacao-treinos/${id}`)
         },
-        redirectTreino(id){
+        redirectTreino(id) {
             this.$router.push(`/cadastro-treino/${id}`)
-        
+
+        }
     }
-}
 }
 
 </script>
@@ -129,5 +153,4 @@ export default {
     border-bottom: solid;
     border-color: orange;
 
-}
-</style>
+}</style>
