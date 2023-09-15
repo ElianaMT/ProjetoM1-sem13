@@ -156,14 +156,14 @@
         <v-window-item value="option-3">
           <v-card flat>
             <v-card-text>
-             <v-table  >
+             <table  >
               <tr v-for="treino in dadosQuarta" :key="treino.id">                     
                     <td class="text-left"> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
                     <td> | {{treino.break_time }} min de pausa</td>
                 </tr> 
-             </v-table>
+             </table>
             </v-card-text>
           </v-card>
         </v-window-item>
@@ -171,14 +171,14 @@
          <v-window-item value="option-4">
           <v-card flat>
             <v-card-text>
-             <v-table>
+             <table>
               <tr v-for="treino in dadosQuinta" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
                     <td> | {{treino.break_time }} min de pausa</td>
                 </tr> 
-             </v-table>
+             </table>
             </v-card-text>
           </v-card>
         </v-window-item>
@@ -186,14 +186,14 @@
         <v-window-item value="option-5">
           <v-card flat>
             <v-card-text>
-             <v-table>
+             <table>
               <tr v-for="treino in dadosSexta" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
                     <td> | {{treino.break_time }} min de pausa</td>
                 </tr> 
-             </v-table>
+             </table>
             </v-card-text>
           </v-card>
         </v-window-item>
@@ -202,14 +202,14 @@
         <v-window-item value="option-6">
           <v-card flat>
             <v-card-text>
-             <v-table>
+             <table>
               <tr v-for="treino in dadosSabado" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
                     <td> | {{treino.break_time }} min de pausa</td>
                 </tr> 
-             </v-table>
+             </table>
             </v-card-text>
           </v-card>
         </v-window-item>
@@ -217,14 +217,14 @@
         <v-window-item value="option-7">
           <v-card flat>
             <v-card-text>
-             <v-table>
+             <table>
               <tr v-for="treino in dadosDomingo" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
                     <td> | {{treino.break_time }} min de pausa</td>
                 </tr> 
-             </v-table>
+             </table>
             </v-card-text>
           </v-card>
         </v-window-item>   
@@ -305,8 +305,8 @@ export default{
         },
         dadosDomingo(){
           return this.treinoLista.filter(item => item.day === "domingo")
-        }
-
+        },
+        
 
       },      
 
