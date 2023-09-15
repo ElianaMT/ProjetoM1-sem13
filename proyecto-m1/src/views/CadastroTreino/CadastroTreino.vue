@@ -55,6 +55,7 @@
 
                   <v-col cols="12" md="4">
                       <v-text-field type="number" label="Pausa"
+                      placeholder="Em minutos"
                       v-model="treino.break_time"
                       :rules="[value => !!value || 'A pausa é obrigatoria'
                       ]" 
@@ -192,18 +193,18 @@ export default {
   
   },
 
-  // redirecciona a visualizacion
+  // redirecciona a visualizacao
   redirectEjercicios(id){
             this.$router.push(`/visualizacao-treinos/${id}`)
         },
-
-
-  //Para el select
+        
+  
   mounted() {
+    //Para o select
     axios.get("http://localhost:3000/exercises")
     .then(res => this.exerciciosLista = res.data),
 
-    // Para el nombre del estudiante
+    // Para o nome do estudante
     axios.get("http://localhost:3000/students")
     .then(res => this.estudiantesLista = res.data)
 
