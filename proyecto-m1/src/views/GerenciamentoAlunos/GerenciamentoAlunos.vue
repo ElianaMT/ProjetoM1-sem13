@@ -1,7 +1,6 @@
 <template>
-    <v-form @submit.prevent="filtrarNome">
+    
         <v-container>
-
             <v-row no-gutters class="flex-wrap encabezado">
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
@@ -26,10 +25,9 @@
 
             </v-row>
 
-
+            <v-form>
             <v-row>
-                <v-col cols="12" md="10">    
-
+                <v-col cols="12" md="10">
                     <v-text-field 
                     v-model="search"
                     type="text" 
@@ -38,19 +36,18 @@
                 </v-col>
 
                 <v-col cols="12" md="2">
-                    <v-btn 
-                                      
+                    <v-btn                                       
                     color="orange-darken-2" 
                     size="large" class="mt-2" 
                     block 
-                    type="submit">
+                    @click="filtrarNome">
                         Buscar
                     </v-btn>
-
                 </v-col>
             </v-row>
+          </v-form>
         </v-container>
-    </v-form>
+    
 
     <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
         <v-table>
@@ -62,7 +59,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="Aluno in Alunos" :key="Aluno.id">
+                <tr v-for="Aluno in AlunosFiltrados" :key="Aluno.id">
                     <td>{{ Aluno.id }}</td>
                     <td>{{ Aluno.name }} </td>
                     <td>
@@ -88,14 +85,11 @@
                                     @click="() => redirect(Aluno.id)">
                                         Ver
                                     </v-btn>
-
                                 </v-col>
                             </v-row>
                         </v-container>
                     </td>
-
                 </tr>
-
             </tbody>
         </v-table>
     </v-card>
@@ -109,8 +103,9 @@ export default {
 
     data() {
         return {
-            // Guarda todos os dados do alunos
             Alunos: [],
+            AlunosFiltrados: [],
+            search: ""
         }
     },
     // Trae o listagem do alunos
@@ -119,10 +114,13 @@ export default {
     },
 
     methods: {
-
         //Filter
-        filtrarNome() { },
-        
+        filtrarNome() {
+            this.AlunosFiltrados = this.Alunos.filter((aluno) => {
+                return aluno.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        },
+
         // Trae o listagem do alunos
         loadAlunos() {
             axios({
@@ -131,6 +129,8 @@ export default {
             })
                 .then((response) => {
                     this.Alunos = response.data.students
+                    //Listagem para filter
+                    this.AlunosFiltrados = response.data.students
                 })
 
                 .catch(() => {
