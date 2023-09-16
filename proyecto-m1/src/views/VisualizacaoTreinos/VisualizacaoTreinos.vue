@@ -24,32 +24,66 @@
 <v-form ref="form" @submit.prevent="handleSubmit" >
   
       <v-container fluid>
-        <h1>Hoje</h1>
-    <p>{{ selected }}</p>
+        <h1>Hoje : {{ diaDaSemana }}</h1>
 
-    
-    <table>
-          <tr v-for="treino in dadosSegunda" :key="treino.id"> 
-            
-            <td> <v-checkbox></v-checkbox> </td>
-                  
-              
+    <table>   
+          <tr v-if = "posicaoNoArray === 1" v-for="treino in dadosSegunda" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
-          <td> | {{ treino.break_time }} min de pausa</td>
-        
+          <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
-    </table>          
 
-   
+          <tr v-if = "posicaoNoArray === 2" v-for="treino in dadosTerca" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>        
+          </tr> 
 
-    <v-checkbox
-      v-model="selected"
-      label="Jacob"
-      value="Jacob"
-    ></v-checkbox>
+          <tr v-if = "posicaoNoArray === 3" v-for="treino in dadosQuarta" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>        
+          </tr> 
 
+          <tr v-if = "posicaoNoArray === 4" v-for="treino in dadosQuinta" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>        
+          </tr> 
+
+          <tr v-if = "posicaoNoArray === 5" v-for="treino in dadosSexta" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>        
+          </tr> 
+
+          <tr v-if = "posicaoNoArray === 6" v-for="treino in dadosSabado" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>        
+          </tr> 
+
+          <tr v-if = "posicaoNoArray === 7" v-for="treino in dadosDomingo" :key="treino.id">             
+            <td> <v-checkbox></v-checkbox> </td>      
+          <td> {{ treino.exercise_description }} </td>
+          <td> | {{ treino.weight }} KG </td>
+          <td> | {{ treino.repetitions }} repetições </td>
+          <td> | {{ treino.break_time }} min de pausa</td>        
+          </tr> 
+
+    </table>
   </v-container>
 </v-form>
 
@@ -245,6 +279,8 @@ import axios from "axios"
 export default{ 
   data() {
     return { 
+      // Array para obter indice do dias da semana
+      diasSemana: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
      
       //Options dia semana      
       tab: 'option-1',   
@@ -252,17 +288,13 @@ export default{
       treinosUsuario:{
         workout_id: "",
         student_id:"",
-        day_of_week: ""
-        
+        day_of_week: ""        
       },   
 
       // Guarda todos os dados de treinos      
-      treinoLista:[]
-      
-    }
-    
-  },
-  
+      treinoLista:[] 
+    }    
+  },  
 
   methods:{
        async handleSubmit (){
@@ -306,9 +338,19 @@ export default{
         dadosDomingo(){
           return this.treinoLista.filter(item => item.day === "domingo")
         },
-        
-
-      },      
+        // Obter nome do dia atual
+        diaDaSemana() {
+        const dataAtual = new Date();
+        const numeroDiaSemana = dataAtual.getDay();
+        return this.diasSemana[numeroDiaSemana];
+    },  
+        // Obter indice do dia
+        posicaoNoArray() {
+        const dataAtual = new Date();
+        const numeroDiaSemana = dataAtual.getDay();
+        return numeroDiaSemana;
+        }
+  },          
 
       //Recibe info. desde cadastro do treinos   
        mounted() {  
