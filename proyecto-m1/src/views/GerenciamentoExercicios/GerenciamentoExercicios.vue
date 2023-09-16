@@ -2,17 +2,16 @@
     <v-form ref="form" @submit.prevent="handleSubmit"  >
         <v-container>
 
-<v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
+<v-row no-gutters class="flex-wrap encabezado">
     <v-col cols="1" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-            <v-icon color="orange" size="x-large">mdi-arm-flex</v-icon>
-
+            <v-icon color="orange" size="large" class="text-h3"> mdi-arm-flex </v-icon>
         </v-sheet>
     </v-col>
 
     <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-            Exercícios
+            <p class="text-h4">Exercícios</p>           
         </v-sheet>
     </v-col>
 </v-row>
@@ -24,7 +23,7 @@
     </v-col>
 
     <v-col cols="12" md="2">
-        <v-btn color="orange" class="mt-2" block type="submit">
+        <v-btn color="orange-darken-2" size="large" class="mt-2" block type="submit">
             Cadastrar
         </v-btn>
 
@@ -33,22 +32,25 @@
 </v-container>
 
     </v-form>
+    
+    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
 
     <v-table>
         <thead>
-            <tr>
-                <th>Nº</th>
-                <th>Nome do Exercício </th>
+            <tr class="text-h5 text-center">
+                <th><p class="text-center">Nº</p></th>
+                <th><p class="text-center">Nome do Exercício</p></th>                
             </tr>
         </thead>
         <tbody>
-            <tr v-for= "nomeExercicio in loadExercicios" :key="nomeExercicio.id" >
-                <td>{{nomeExercicio.id}}</td>
-                <td>{{nomeExercicio.description}}</td>
+            <tr v-for= "nomeExercicio in loadExercicios" :key="nomeExercicio.id">
+                <td><p class="text-center text-body-1">{{nomeExercicio.id}}</p></td>
+                <td><p class="text-center text-body-1">{{nomeExercicio.description}}</p></td>                
             </tr>
             
         </tbody>
     </v-table>
+</v-card>
 
 </template>
 

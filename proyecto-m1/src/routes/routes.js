@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Login from "../views/Login/Login.vue"
 import CadastroUsuario from "../views/CadastroUsuario/CadastroUsuario.vue"
-import Dashboard from "../views/Dashboard/dashboard.vue"
+import Dashboard from "../views/Dashboard/Dashboard.vue"
 import GerenciamentoExercicios from "../views/GerenciamentoExercicios/GerenciamentoExercicios.vue"
 import GerenciamentoAlunos from "../views/GerenciamentoAlunos/GerenciamentoAlunos.vue"
 import CadastroNovoAluno from "../views/CadastroNovoAluno/CadastroNovoAluno.vue"
@@ -44,7 +44,7 @@ const router = createRouter({
       component: CadastroNovoAluno
     },
     {
-      path: '/cadastro-treino',
+      path: '/cadastro-treino/:id',
       name: 'CadastroTreino',
       component: CadastroTreino
     },

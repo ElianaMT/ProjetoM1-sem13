@@ -2,7 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes/routes'
 
-const app = createApp(App)
+// VueDatePicker
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 
 // Vuetify
 import 'vuetify/styles'
@@ -19,7 +22,9 @@ const vuetify = createVuetify({
     },
   })
 
-
+  const app = createApp(App)
+  
+app.component('VueDatePicker', VueDatePicker)  
 app
 .use(router)
 .use(vuetify)
