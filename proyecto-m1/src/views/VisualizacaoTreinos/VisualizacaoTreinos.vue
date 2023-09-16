@@ -30,7 +30,7 @@
 
     <table>   
           <tr class="text-body-1" v-if = "posicaoNoArray === 1" v-for="treino in dadosSegunda" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>     
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
@@ -38,7 +38,7 @@
           </tr> 
 
           <tr class="text-body-1" v-if = "posicaoNoArray === 2" v-for="treino in dadosTerca" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>     
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
@@ -46,7 +46,7 @@
           </tr> 
 
           <tr class="text-body-1" v-if = "posicaoNoArray === 3" v-for="treino in dadosQuarta" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
@@ -54,7 +54,7 @@
           </tr> 
 
           <tr class="text-body-1" v-if = "posicaoNoArray === 4" v-for="treino in dadosQuinta" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>    
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
@@ -62,7 +62,7 @@
           </tr> 
 
           <tr class="text-body-1" v-if = "posicaoNoArray === 5" v-for="treino in dadosSexta" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
@@ -70,7 +70,7 @@
           </tr> 
 
           <tr class="text-body-1" v-if = "posicaoNoArray === 6" v-for="treino in dadosSabado" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
@@ -78,13 +78,12 @@
           </tr> 
 
           <tr class="text-body-1" v-if = "posicaoNoArray === 7" v-for="treino in dadosDomingo" :key="treino.id">             
-            <td> <v-checkbox></v-checkbox> </td>      
+          <td><input type="checkbox"></td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
           <td> | {{ treino.repetitions }} repetições </td>
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
-
     </table>
   </v-container>
 </v-form>
@@ -160,7 +159,7 @@
         <v-window-item value="option-1">
           <v-card flat>
             <v-card-text>  
-                <table >
+                <table>
                 <tr class="text-body-1" v-for="treino in dadosSegunda" :key="treino.id">               
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
@@ -190,7 +189,7 @@
         <v-window-item value="option-3">
           <v-card flat>
             <v-card-text>
-             <table  >
+             <table>
               <tr class="text-body-1" v-for="treino in dadosQuarta" :key="treino.id">                     
                     <td class="text-left"> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
