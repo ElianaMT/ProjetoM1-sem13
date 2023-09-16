@@ -4,13 +4,13 @@
             <v-row no-gutters class="flex-wrap encabezado">
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
-                        <v-icon color="orange" size="large">mdi-account-multiple</v-icon>
+                       <h1><v-icon color="orange" size="large">mdi-account-multiple</v-icon></h1> 
                     </v-sheet>
                 </v-col>
 
                 <v-col cols="9" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
-                        Alunos
+                       <h1>Alunos</h1> 
                     </v-sheet>
                 </v-col>
 
@@ -24,6 +24,8 @@
                 </v-col>
 
             </v-row>
+
+            <br>
 
             <v-form>
             <v-row>
@@ -65,7 +67,7 @@
                     <td>
                         <v-container>
                             <v-row>
-                                <v-col cols="12" md="3">
+                                <v-col cols="12" md="5">
                                     <v-btn 
                                     color="orange-accent-1" 
                                     class="mt-auto" 
@@ -76,7 +78,7 @@
                                     </v-btn>
                                 </v-col>
 
-                                <v-col cols="12" md="2">
+                                <v-col cols="12" md="3">
                                     <v-btn 
                                     color="orange-accent-1" 
                                     class="mt-auto" 

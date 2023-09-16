@@ -2,17 +2,17 @@
     <v-form ref="form" @submit.prevent="handleSubmit"  >
         <v-container>
 
-<v-row no-gutters class="flex-wrap bg-surface-variant encabezado">
+<v-row no-gutters class="flex-wrap encabezado">
     <v-col cols="1" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-            <v-icon color="orange" size="large">mdi-arm-flex</v-icon>
+           <h1><v-icon color="orange" size="large">mdi-arm-flex</v-icon></h1> 
 
         </v-sheet>
     </v-col>
 
     <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-            Exercícios
+           <h1>Exercícios</h1> 
         </v-sheet>
     </v-col>
 </v-row>

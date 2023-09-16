@@ -4,13 +4,13 @@
     <v-row no-gutters class="flex-wrap encabezado">
       <v-col cols="1" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-          <v-icon color="orange" size="large">mdi-account-multiple</v-icon>
+          <h1><v-icon color="orange" size="large">mdi-account-multiple</v-icon></h1>
         </v-sheet>
       </v-col>
 
       <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-          Treinos-  {{this.$route.params.id}}
+         <h1> Treinos-  {{this.$route.params.id}}</h1> 
         </v-sheet>
       </v-col>
     </v-row>
@@ -24,7 +24,7 @@
 <v-form ref="form" @submit.prevent="handleSubmit" >
   
       <v-container fluid>
-        <h1>Hoje : {{ diaDaSemana }}</h1>
+        <h2>Hoje : {{ diaDaSemana }}</h2>
 
     <table>   
           <tr v-if = "posicaoNoArray === 1" v-for="treino in dadosSegunda" :key="treino.id">             
@@ -86,8 +86,6 @@
     </table>
   </v-container>
 </v-form>
-
-
       
       <v-card>
     <v-toolbar
