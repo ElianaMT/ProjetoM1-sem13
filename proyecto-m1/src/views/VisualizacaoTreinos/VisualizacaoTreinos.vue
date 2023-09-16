@@ -4,16 +4,17 @@
     <v-row no-gutters class="flex-wrap encabezado">
       <v-col cols="1" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-          <h1><v-icon color="orange" size="large">mdi-account-multiple</v-icon></h1>
+          <v-icon color="orange" size="large" class="text-h3">mdi-account-multiple</v-icon> 
         </v-sheet>
       </v-col>
 
       <v-col cols="11" class="flex-grow-0 flex-shrink-0">
         <v-sheet class="ma-2 pa-4">
-         <h1> Treinos-  {{this.$route.params.id}}</h1> 
+          <p class="text-h4">Treinos-  {{this.$route.params.id}}</p>         
         </v-sheet>
       </v-col>
     </v-row>
+    <br>
     <br>
 
 
@@ -24,10 +25,11 @@
 <v-form ref="form" @submit.prevent="handleSubmit" >
   
       <v-container fluid>
-        <h2>Hoje : {{ diaDaSemana }}</h2>
+        <p class="text-h4">Hoje : {{ diaDaSemana }}</p>   
+        <br>     
 
     <table>   
-          <tr v-if = "posicaoNoArray === 1" v-for="treino in dadosSegunda" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 1" v-for="treino in dadosSegunda" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -35,7 +37,7 @@
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
 
-          <tr v-if = "posicaoNoArray === 2" v-for="treino in dadosTerca" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 2" v-for="treino in dadosTerca" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -43,7 +45,7 @@
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
 
-          <tr v-if = "posicaoNoArray === 3" v-for="treino in dadosQuarta" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 3" v-for="treino in dadosQuarta" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -51,7 +53,7 @@
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
 
-          <tr v-if = "posicaoNoArray === 4" v-for="treino in dadosQuinta" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 4" v-for="treino in dadosQuinta" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -59,7 +61,7 @@
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
 
-          <tr v-if = "posicaoNoArray === 5" v-for="treino in dadosSexta" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 5" v-for="treino in dadosSexta" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -67,7 +69,7 @@
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
 
-          <tr v-if = "posicaoNoArray === 6" v-for="treino in dadosSabado" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 6" v-for="treino in dadosSabado" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -75,7 +77,7 @@
           <td> | {{ treino.break_time }} min de pausa</td>        
           </tr> 
 
-          <tr v-if = "posicaoNoArray === 7" v-for="treino in dadosDomingo" :key="treino.id">             
+          <tr class="text-body-1" v-if = "posicaoNoArray === 7" v-for="treino in dadosDomingo" :key="treino.id">             
             <td> <v-checkbox></v-checkbox> </td>      
           <td> {{ treino.exercise_description }} </td>
           <td> | {{ treino.weight }} KG </td>
@@ -89,7 +91,7 @@
       
       <v-card>
     <v-toolbar
-      color="orange-darken-2"
+      color="orange-accent-1"
     >
       <v-toolbar-title>Treinos da Semana</v-toolbar-title>
     </v-toolbar>
@@ -159,7 +161,7 @@
           <v-card flat>
             <v-card-text>  
                 <table >
-                <tr v-for="treino in dadosSegunda" :key="treino.id">               
+                <tr class="text-body-1" v-for="treino in dadosSegunda" :key="treino.id">               
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
@@ -174,7 +176,7 @@
           <v-card flat>
             <v-card-text>
               <table>
-                <tr v-for="treino in dadosTerca" :key="treino.id">                     
+                <tr class="text-body-1" v-for="treino in dadosTerca" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
@@ -189,7 +191,7 @@
           <v-card flat>
             <v-card-text>
              <table  >
-              <tr v-for="treino in dadosQuarta" :key="treino.id">                     
+              <tr class="text-body-1" v-for="treino in dadosQuarta" :key="treino.id">                     
                     <td class="text-left"> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
@@ -204,7 +206,7 @@
           <v-card flat>
             <v-card-text>
              <table>
-              <tr v-for="treino in dadosQuinta" :key="treino.id">                     
+              <tr class="text-body-1" v-for="treino in dadosQuinta" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
@@ -219,7 +221,7 @@
           <v-card flat>
             <v-card-text>
              <table>
-              <tr v-for="treino in dadosSexta" :key="treino.id">                     
+              <tr class="text-body-1" v-for="treino in dadosSexta" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
@@ -235,7 +237,7 @@
           <v-card flat>
             <v-card-text>
              <table>
-              <tr v-for="treino in dadosSabado" :key="treino.id">                     
+              <tr class="text-body-1" v-for="treino in dadosSabado" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>
@@ -250,7 +252,7 @@
           <v-card flat>
             <v-card-text>
              <table>
-              <tr v-for="treino in dadosDomingo" :key="treino.id">                     
+              <tr class="text-body-1" v-for="treino in dadosDomingo" :key="treino.id">                     
                     <td> {{treino.exercise_description}} </td>
                     <td> | {{treino.weight }} KG </td>
                     <td> | {{treino.repetitions}} repetições </td>

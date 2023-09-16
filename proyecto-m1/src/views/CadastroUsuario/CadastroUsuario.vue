@@ -6,8 +6,8 @@
        max-width="448"
        rounded="lg"
      >
-     <div class="pa-8" >
-      <h1>Crie sua conta</h1>
+     <div class=" pt-8 pb-8" >
+      <p class="text-h4 text-center">Crie sua conta</p>
      </div>
      
 

@@ -1,15 +1,14 @@
 
 <template>
     <v-container>
-    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
-        <h1>Bem-vindo, {{userInfo.name }}</h1>
-
+    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">        
+        <p class="text-h4">Bem-vindo, {{userInfo.name }}</p>
         <div class="container">
             <v-card class="mx-auto pa-12 pb-8" elevation="8" width="500" rounded="lg">
                 <div class="formato">                
                 <div>
-                    <div>
-                       <h2> {{dashboardInfo.amount_students }} Alunos</h2>
+                    <div>                       
+                       <p class="text-h5">{{dashboardInfo.amount_students }} Alunos</p>
                     </div>
                     <br>
                     <div>
@@ -19,7 +18,7 @@
                     </div>
                 </div> 
                 <div>
-                    <h1><v-icon color="orange" size="x-large">mdi-account-multiple</v-icon></h1>
+                    <v-icon color="orange" class="text-h1">mdi-account-multiple</v-icon>
                 </div>
             </div>
         </v-card>
@@ -28,7 +27,7 @@
                 <div class="formato">                
                 <div>
                     <div>
-                       <h2> {{dashboardInfo.amount_exercises}} Exercicios</h2>
+                        <p class="text-h5">{{dashboardInfo.amount_exercises}} Exercicios</p>                       
                     </div>
                     <br>
                     <div>
@@ -38,7 +37,7 @@
                     </div>
                 </div> 
                 <div>
-                    <h1><v-icon color="orange" size="x-large">mdi-arm-flex</v-icon></h1>
+                    <v-icon color="orange" class="text-h1">mdi-arm-flex</v-icon>
                 </div>
             </div>
         </v-card>

@@ -3,13 +3,13 @@
       <v-row no-gutters class="flex-wrap encabezado">
           <v-col cols="1" class="flex-grow-0 flex-shrink-0">
               <v-sheet class="ma-2 pa-4">
-                <h1><v-icon color="orange" size="large">mdi-account-multiple</v-icon></h1>
+                <v-icon color="orange" size="large" class="text-h3">mdi-account-multiple</v-icon> 
               </v-sheet>
           </v-col>
 
           <v-col cols="11" class="flex-grow-0 flex-shrink-0">
               <v-sheet class="ma-2 pa-4">
-                 <h1>Treino- {{this.$route.params.id }} </h1> 
+                <p class="text-h4">Treino- {{this.$route.params.id}}</p>                
               </v-sheet>
           </v-col>
       </v-row>

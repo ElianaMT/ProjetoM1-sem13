@@ -4,27 +4,26 @@
             <v-row no-gutters class="flex-wrap encabezado">
                 <v-col cols="1" class="flex-grow-0 flex-shrink-0">
                     <v-sheet class="ma-2 pa-4">
-                       <h1><v-icon color="orange" size="large">mdi-account-multiple</v-icon></h1> 
+                       <v-icon color="orange" size="large" class="text-h3">mdi-account-multiple</v-icon> 
                     </v-sheet>
                 </v-col>
 
                 <v-col cols="9" class="flex-grow-0 flex-shrink-0">
-                    <v-sheet class="ma-2 pa-4">
-                       <h1>Alunos</h1> 
+                    <v-sheet class="ma-3 pa-4">
+                       <p class="text-h4">Alunos</p>
                     </v-sheet>
                 </v-col>
 
                 <v-col cols="2" class="flex-grow-0 flex-shrink-0">
-                    <v-sheet class="ma-2 pa-2">
+                    <v-sheet class="ma-3 pa-2">
                         <v-btn color="orange-darken-2" size="large" class="m-2" block type="submit"
                             to="/cadastro-novo-aluno">
                             Novo
                         </v-btn>
                     </v-sheet>
                 </v-col>
-
             </v-row>
-
+            
             <br>
 
             <v-form>
@@ -54,29 +53,20 @@
     <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
         <v-table>
             <thead>
-                <tr>
-                    <th>Nº</th>
-                    <th>Nome do Aluno</th>
-                    <th>Ações</th>
+                <tr class="text-h5 text-center">
+                    <th><p class="text-center">Nº</p></th>
+                    <th><p class="text-center">Nome do Aluno</p></th>
+                    <th><p class="text-center">Ações</p></th>                    
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="Aluno in AlunosFiltrados" :key="Aluno.id">
-                    <td>{{ Aluno.id }}</td>
-                    <td>{{ Aluno.name }} </td>
+                    <td><p class="text-center text-body-1">{{ Aluno.id }}</p></td>
+                    <td><p class="text-center text-body-1">{{ Aluno.name }}</p></td>
                     <td>
-                        <v-container>
-                            <v-row>
-                                <v-col cols="12" md="5">
-                                    <v-btn 
-                                    color="orange-accent-1" 
-                                    class="mt-auto" 
-                                    block 
-                                    type="submit"
-                                    @click="() => redirectTreino(Aluno.id)">
-                                    Montar treino
-                                    </v-btn>
-                                </v-col>
+                        <v-container  >
+                            <v-row class="d-flex flex-row-reverse">    
+                                <v-col cols="12" md="2"></v-col>
 
                                 <v-col cols="12" md="3">
                                     <v-btn 
@@ -88,6 +78,18 @@
                                         Ver
                                     </v-btn>
                                 </v-col>
+
+                                <v-col cols="12" md="5">
+                                    <v-btn 
+                                    color="orange-accent-1" 
+                                    class="mt-auto" 
+                                    block 
+                                    type="submit"
+                                    @click="() => redirectTreino(Aluno.id)">
+                                    Montar treino
+                                    </v-btn>
+                                </v-col>                               
+                                                                
                             </v-row>
                         </v-container>
                     </td>

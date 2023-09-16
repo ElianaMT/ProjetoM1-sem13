@@ -42,13 +42,13 @@
         Entrar   
       </v-btn>
 
-      <v-card-text class="text-center">Ainda não tem conta? 
-        <a class="text-orange text-decoration-none" 
-        href="/cadastro-usuario" 
+      <v-card-text class="text-center text-body-2">Ainda não tem conta? 
+        <router-link class="text-orange text-decoration-none" 
+        to="/cadastro-usuario" 
         rel="noopener noreferrer" 
         target="_blank">
         Cadrastre-se <v-icon icon="mdi-chevron-right"></v-icon>
-        </a>
+        </router-link>        
       </v-card-text>
     </v-card>
   </v-form>
