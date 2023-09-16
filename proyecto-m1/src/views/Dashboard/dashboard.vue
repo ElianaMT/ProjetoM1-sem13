@@ -1,42 +1,50 @@
 
 <template>
+    <v-container>
     <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="1200" rounded="lg">
         <h1>Bem-vindo, {{userInfo.name }}</h1>
-    <div class="container">
 
-        <v-card class="mx-auto" width="500">
-                       
-            <template v-slot:title>  <v-icon color="orange" size="large">mdi-account-multiple</v-icon> 
-                {{dashboardInfo.amount_students }} Alunos
-            </template>
-
-
-            <v-card-actions>
-                <v-btn variant="outlined" color="orange-accent-3" size="large" to="/gerenciamento-alunos">
-                    Adicionar
-                </v-btn>
-               
-            </v-card-actions>
-
-
+        <div class="container">
+            <v-card class="mx-auto pa-12 pb-8" elevation="8" width="500" rounded="lg">
+                <div class="formato">                
+                <div>
+                    <div>
+                       <h2> {{dashboardInfo.amount_students }} Alunos</h2>
+                    </div>
+                    <br>
+                    <div>
+                        <v-btn variant="outlined" color="orange-accent-3" size="large" to="/cadastro-novo-aluno">
+                        Adicionar
+                        </v-btn> 
+                    </div>
+                </div> 
+                <div>
+                    <h1><v-icon color="orange" size="x-large">mdi-account-multiple</v-icon></h1>
+                </div>
+            </div>
         </v-card>
-
-        <v-card class="mx-auto" width="500" to="/gerenciamento-exercicios">
-
-            <template v-slot:title>
-                <v-icon color="orange" size="large">mdi-arm-flex</v-icon> 
-                {{dashboardInfo.amount_exercises}} Exercicios
-            </template>
-
-            <v-card-actions>
-                <v-btn variant="outlined" color="orange-accent-3" size="large" to="/gerenciamento-exercicios">
-                    Adicionar
-                </v-btn>
-            </v-card-actions>
-
+        
+        <v-card class="mx-auto pa-12 pb-8" elevation="8" width="500" rounded="lg">
+                <div class="formato">                
+                <div>
+                    <div>
+                       <h2> {{dashboardInfo.amount_exercises}} Exercicios</h2>
+                    </div>
+                    <br>
+                    <div>
+                        <v-btn variant="outlined" color="orange-accent-3" size="large" to="/gerenciamento-exercicios">
+                        Adicionar
+                        </v-btn>
+                    </div>
+                </div> 
+                <div>
+                    <h1><v-icon color="orange" size="x-large">mdi-arm-flex</v-icon></h1>
+                </div>
+            </div>
         </v-card>
     </div>
 </v-card>
+</v-container>
 </template>
 
 <script>
@@ -63,6 +71,11 @@ export default{
 .title {
     padding-top: 50px;
     padding-left: 11%;
+}
+.formato {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .container {
