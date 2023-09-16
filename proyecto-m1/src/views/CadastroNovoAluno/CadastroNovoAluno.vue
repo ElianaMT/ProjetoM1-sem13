@@ -29,7 +29,8 @@
                     </v-col>
 
                     <v-col cols="12" md="6">
-                        <v-text-field v-model="alunoNovo.email" type="text" label="E-mail">
+                        <v-text-field v-model="alunoNovo.email" type="text" label="E-mail"
+                        :rules="[v => /.+@.+\..+/.test(v) || 'E-mail deve ser válido']">
                         </v-text-field>
                     </v-col>
                 </v-row>
