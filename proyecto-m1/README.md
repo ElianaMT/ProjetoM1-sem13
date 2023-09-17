@@ -1,20 +1,25 @@
 # Projeto TrainSys
 
-![Logo](../proyecto-m1/src/views/Login/Logo.png)
+
+<p align="center">
+  <img src="../proyecto-m1/src/views/Login/Logo.png" alt="Logo">
+</p>
 
 Uma inovadora aplicação web feita para proporcionar excelência no gerenciamento de treinos.
 Dedicada aos instrutores de academia para aprimorar a administração dos treinamentos de seus alunos.
 
 ## Índice
-1. <a href="#funcionalidades">Funcionalidades do Projeto</a>
-2. <a href="#layout">Layout</a>
-3. <a href="#demostracao">Demostratração</a>
-4. <a href="#rodar">Como rodar este projeto?</a>
-5. <a href="#technologias">Technologias Utilizadas</a>
-6. <a href="#melhoras">Proximos passos</a>
+- [Funcionalidades do Projeto](#funcionalidades)
+- [Layout](#layout)
+- [Demostratração](#demostracao)
+- [Como rodar este projeto?](#rodar)
+- [Technologias Utilizadas](#technologias)
+- [Autora](#autora)
+- [Proximos passos](#passos)
 
 
-## 1. Funcionalidades do Projeto
+<a name="funcionalidades"></a>
+## Funcionalidades do Projeto
 
 - [x] Login
 - [x] Cadastro Usuario
@@ -25,13 +30,18 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 - [x] Cadastro Treino
 - [x] Visualização Treinos
 
-## 2. Layout
+<a name="layout"></a>
+## Layout
 ### 2.1. Pages
-####  2.1.1 Pages Login
-
-![Login](../proyecto-m1/src/assets/1.login.png)
+####  2.1.1 Login
+<p align="center">
+  <img src="../proyecto-m1/src/assets/1.login.png" alt="Login">
+</p>
 ####  2.1.2 Cadastro Usuario
-![cadastro_usuario](../proyecto-m1/src/assets/2.%20cadastro-usuario.png)
+<p align="center">
+  <img src="../proyecto-m1/src/assets/2.%20cadastro-usuario.png" alt="Login">
+</p>
+
 ####  2.1.3 Dashboard	
 ![dashboard](../proyecto-m1/src/assets/3.dashboard.png)
 ####  2.1.4 Gerenciamento de Exercicios
@@ -67,10 +77,12 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 | Body  | text-body-1    |
 | Text links | text-body-2    |
 
-## 3. Demostração
+<a name="demostracao"></a>
+## Demostratração
 [link_demostracao](../proyecto-m1/src/assets/1.login.png)
 
-## 4. Como rodar este projeto?
+<a name="rodar"></a>
+## Como rodar este projeto?
 ### APP
 ```bash
 # Clone este repositório
@@ -103,19 +115,23 @@ $ npm run server
 http://localhost:3000/
 ```
 
-## 5. Technologias Utilizadas
+<a name="technologias"></a>
+## Technologias Utilizadas
 1. HTML
 2. CSS
 3. [Vue.js](https://br.vuejs.org) 
 4. [Vuetify](https://vuetifyjs.com/en/) 
 5. JavaScript
 6. [DatePicker](https://vue3datepicker.com/)
-## 5. Autora
+
+<a name="autora"></a>
+## Autora
 
 <img alt="imagen da desemvolvedora" width="200" src="../proyecto-m1/src/assets/Eliana.jpg">
 
 [Linkedin](https://www.linkedin.com/in/eliana-morillo-t-48888569/)
 
-## 6. Proximos passos
+<a name="passos"></a>
+## Proximos passos
 - [ ] Reemplazar id por nome do aluno na tela da visualização de treinos
 - [ ] Implementar um metodo para atualizar a tela gerenciamento de exercícios.
