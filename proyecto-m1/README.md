@@ -85,6 +85,11 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 
 </p>
 
+### 2.4. Matriz de funcionalidades do projeto
+
+[Descargar matriz](../proyecto-m1/src/assets/Matriz%20funcionalidades%20App.pdf)
+
+
 <a name="demostracao"></a>
 ## Demostratração
 [link_demostracao](../proyecto-m1/src/assets/1.login.png)
