@@ -47,9 +47,27 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 
 ### 2.2. Cores
 
-### 2.3. Tipografia
 
-## 3. Demostratração
+| Elemento  | Cores |
+| ------------- |:-------------:|
+| Toolbar      | orange-accent-2     |
+| Primary buttons   | orange-darken-2    |
+| Secondary buttons   | orange-accent-1    |
+| Icons| orange   |
+
+ 
+
+### 2.3. Tipografia
+| Elemento  | Tipografia |
+| ------------- |:-------------:|
+| Menu title     | text-h4     |
+| Card title   | text-h4    |
+| Table title    | text-h5    |
+| Table body   | text-body-1   |
+| Body  | text-body-1    |
+| Text links | text-body-2    |
+
+## 3. Demostração
 [link_demostracao](../proyecto-m1/src/assets/1.login.png)
 
 ## 4. Como rodar este projeto?
@@ -94,7 +112,8 @@ http://localhost:3000/
 6. [DatePicker](https://vue3datepicker.com/)
 ## 5. Autora
 
-![Eliana](../proyecto-m1/src/assets/fotocv.jpg)
+<img alt="imagen da desemvolvedora" width="200" src="../proyecto-m1/src/assets/Eliana.jpg">
+
 [Linkedin](https://www.linkedin.com/in/eliana-morillo-t-48888569/)
 
 ## 6. Proximos passos
