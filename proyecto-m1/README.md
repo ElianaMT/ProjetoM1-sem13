@@ -32,6 +32,7 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 
 <a name="layout"></a>
 ## Layout
+
 ### 2.1. Pages
 ####  2.1.1 Login
 <p align="center">
@@ -124,6 +125,7 @@ http://localhost:3000/
 
 <a name="technologias"></a>
 ## Technologias Utilizadas
+
 1. HTML
 2. CSS
 3. [Vue.js](https://br.vuejs.org) 
