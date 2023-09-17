@@ -37,6 +37,7 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 <p align="center">
   <img src="../proyecto-m1/src/assets/1.login.png" alt="Login">
 </p>
+
 ####  2.1.2 Cadastro Usuario
 <p align="center">
   <img src="../proyecto-m1/src/assets/2.%20cadastro-usuario.png" alt="Login">
@@ -57,17 +58,21 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 
 ### 2.2. Cores
 
+<p align="center">
 
-| Elemento  | Cores |
+  | Elemento  | Cores |
 | ------------- |:-------------:|
 | Toolbar      | orange-accent-2     |
 | Primary buttons   | orange-darken-2    |
 | Secondary buttons   | orange-accent-1    |
 | Icons| orange   |
 
- 
+</p>
 
-### 2.3. Tipografia
+ ### 2.3. Tipografia
+
+ <p align="center">
+
 | Elemento  | Tipografia |
 | ------------- |:-------------:|
 | Menu title     | text-h4     |
@@ -76,6 +81,8 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 | Table body   | text-body-1   |
 | Body  | text-body-1    |
 | Text links | text-body-2    |
+
+</p>
 
 <a name="demostracao"></a>
 ## Demostratração
