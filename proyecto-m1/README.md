@@ -93,7 +93,7 @@ Dedicada aos instrutores de academia para aprimorar a administração dos treina
 <a name="demostracao"></a>
 ## Demostratração
 
-[Assista ao vídeo](https://youtu.be/TOJsGh-LQCc)
+[Assista ao vídeo](https://youtu.be/ufBJTcmtrPU)
 
 <a name="rodar"></a>
 ## Como rodar este projeto?
